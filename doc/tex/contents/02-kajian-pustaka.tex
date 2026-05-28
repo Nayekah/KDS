@@ -1,0 +1,56 @@
+\section{Kajian Pustaka}
+
+\subsection{Peto's Paradox}
+
+Peto's Paradox berangkat dari ketidaksesuaian antara prediksi sederhana dan
+data lintas spesies. Jika setiap sel memiliki peluang yang sama untuk
+mengalami transformasi kanker, maka organisme besar dan berumur panjang
+diperkirakan memiliki risiko kanker lebih tinggi daripada organisme
+kecil. Pada kenyataannya, korelasi tersebut lemah atau tidak proporsional
+antarspesies \cite{caulin2011}. Hal ini berbeda dengan pola dalam satu
+spesies, di mana ukuran tubuh atau umur sering berkaitan dengan risiko
+kanker yang lebih tinggi.
+
+Penjelasan biologis yang umum diajukan adalah evolusi mekanisme supresi
+kanker. Mekanisme tersebut dapat berupa DNA repair yang lebih efisien,
+checkpoint yang lebih ketat, apoptosis yang lebih sensitif, pembatasan
+pembelahan stem cell, arsitektur jaringan yang membatasi ekspansi klon,
+atau sistem imun yang lebih efektif. Contoh yang banyak dibahas adalah
+gajah. Sulak dkk. melaporkan ekspansi salinan TP53 pada gajah dan respons
+kerusakan DNA yang lebih aktif \cite{sulak2016}. Tollis dkk. juga melaporkan
+percepatan evolusi pada mekanisme pertahanan penyakit gajah
+\cite{tollis2021}.
+
+\subsection{Dataset Kanker Lintas Mamalia}
+
+Vincze dkk. menyusun basis data cancer-related mortality pada mamalia dewasa
+di bawah perawatan manusia \cite{vincze2022}. Data berasal dari Species360
+dan Zoological Information Management System. Analisis utama mereka
+melibatkan 191 spesies mamalia dan menunjukkan bahwa cancer mortality risk
+sebagian besar independen dari massa tubuh dan adult life expectancy.
+Mereka juga menekankan perbedaan antarordo dan kaitan diet dengan risiko
+kanker.
+
+Dalam paper ini, data yang tersedia publik dari GitHub penulis digunakan
+sebagai input analisis. Kolom utama yang dipakai adalah Species, Order,
+Species body mass, Adult life expectancy, CMR, ICM, jumlah individu, jumlah
+catatan postmortem, dan jumlah kasus neoplasia. Setelah baris dengan nilai
+inti kosong dikeluarkan, analisis menghasilkan 172 spesies. Dari jumlah
+tersebut, 131 spesies memiliki CMR lebih dari nol.
+
+\subsection{Siklus Sel sebagai Interpretasi Mekanistik}
+
+Data komparatif tidak mengukur DNA repair, checkpoint, atau apoptosis secara
+langsung pada setiap spesies. Karena itu, paper ini tidak mengklaim bahwa
+residual statistik adalah indikator langsung satu mekanisme molekuler tertentu.
+Sebaliknya, residual dipakai sebagai sinyal komputasional: jika suatu
+spesies memiliki exposure proxy tinggi tetapi CMR rendah, maka spesies
+tersebut menjadi kandidat untuk diteliti mekanisme supresinya.
+
+Interpretasi siklus sel tetap relevan karena sebagian besar mekanisme
+supresi kanker bekerja dengan mengurangi peluang mutasi bertahan dan
+berekspansi. DNA repair menurunkan mutasi efektif. Checkpoint menghambat
+kelanjutan siklus sel saat kerusakan terdeteksi. Apoptosis menghilangkan
+sel berisiko. Dengan demikian, analisis komparatif dapat digunakan untuk
+menentukan spesies atau ordo yang layak diprioritaskan dalam studi mekanisme
+kontrol siklus sel.

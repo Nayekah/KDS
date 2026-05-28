@@ -1,0 +1,228 @@
+\section{Hasil dan Diskusi}
+
+\subsection{Hubungan Massa Tubuh dan CMR}
+
+Gambar~\ref{fig:mass-cmr} memperlihatkan hubungan massa tubuh dan CMR pada
+spesies dengan CMR lebih dari nol. Jika prediksi naif berlaku pada data ini,
+titik-titik spesies bermassa besar diperkirakan cenderung berada pada CMR
+lebih tinggi. Pola yang terlihat menyebar. Regresi log massa tubuh terhadap log CMR memiliki
+slope \MassSlope\ dan $R^2=\MassRsq$ (Tabel~\ref{tab:regression-summary}).
+Dalam analisis ini, massa tubuh menjelaskan sebagian kecil variasi CMR.
+
+\begin{figure}[t]
+    \centering
+    \resizebox{0.96\columnwidth}{!}{\input{figures/F1_mass_cmr}}
+    \caption{Hubungan massa tubuh dan adult cancer mortality risk (CMR).
+    Setiap titik adalah satu spesies mamalia dengan CMR nonnol. Ukuran
+    titik mengikuti jumlah catatan postmortem.}
+    \label{fig:mass-cmr}
+\end{figure}
+
+Hasil ini konsisten dengan bentuk empiris Peto's Paradox. Spesies besar
+tidak selalu memiliki CMR tinggi. Bahkan ketika massa tubuh dan umur
+digabung sebagai exposure proxy, slope terhadap log CMR tetap kecil
+(\ExposureSlope) dengan $R^2=\ExposureRsq$. Dengan demikian, jumlah sel dan
+umur dewasa saja belum cukup untuk menjelaskan variasi risiko kanker
+antarspesies.
+
+Bootstrap pada Tabel~\ref{tab:bootstrap-slopes} memperlihatkan bahwa slope
+massa tubuh tetap kecil. Interval 95\% untuk massa tubuh berada pada rentang
+negatif, sedangkan adult life expectancy memiliki interval yang melewati nol.
+Exposure proxy juga menunjukkan slope kecil dan negatif. Hasil ini tidak
+berarti massa tubuh melindungi dari kanker secara langsung. Interpretasi
+yang lebih hati-hati adalah bahwa variasi CMR lintas spesies tidak mengikuti
+prediksi sederhana bahwa lebih banyak massa dan umur akan menaikkan risiko
+secara proporsional.
+
+Tabel~\ref{tab:postmortem-thresholds} menunjukkan hasil setelah filtering
+berdasarkan jumlah catatan postmortem. Ketika hanya spesies dengan minimal
+50 atau 100 catatan postmortem dipakai, slope massa tubuh tetap kecil dan
+$R^2$ turun. Ini memberi indikasi bahwa kesimpulan ini tidak hanya
+didorong oleh spesies dengan catatan postmortem sedikit. Namun,
+filtering yang lebih ketat juga mengurangi jumlah spesies, sehingga hasil
+robustness ini dibaca sebagai pemeriksaan pendukung, bukan pengganti model
+statistik filogenetik lengkap.
+
+Gambar~\ref{fig:exposure-cmr} memperlihatkan hubungan exposure proxy dan
+CMR pada skala log. Titik oranye menandai spesies dengan indeks supresi
+tinggi. Pola sebaran tetap lebar: spesies dengan exposure mirip dapat
+memiliki CMR berbeda. Ini menunjukkan bahwa exposure proxy berguna
+sebagai pembanding naif, tetapi belum memadai sebagai model lengkap. Variasi
+vertikal pada exposure yang sama menjadi ruang biologis yang perlu diteliti,
+karena dapat mencerminkan perbedaan mekanisme supresi kanker.
+
+\begin{figure}[t]
+    \centering
+    \resizebox{0.96\columnwidth}{!}{\input{figures/F4_exposure_cmr}}
+    \caption{Hubungan exposure proxy dan CMR pada skala log. Titik oranye
+    menunjukkan spesies dengan indeks supresi tinggi menurut model risiko
+    naif.}
+    \label{fig:exposure-cmr}
+\end{figure}
+
+Gambar~\ref{fig:threshold-slope} merangkum robustness terhadap ambang jumlah
+catatan postmortem. Ketika spesies dengan catatan lebih sedikit dikeluarkan,
+slope massa tubuh tetap dekat nol dan tidak berubah menjadi hubungan positif
+yang besar. Ini perlu diperhatikan karena salah satu kritik wajar terhadap dataset kebun
+binatang adalah variasi kualitas pencatatan antarspesies. Hasil ini tidak
+menghapus bias tersebut, tetapi memberi indikasi bahwa pola tersebut tetap
+muncul ketika analisis dibatasi pada spesies dengan catatan postmortem lebih
+banyak.
+
+\begin{figure}[t]
+    \centering
+    \resizebox{0.94\columnwidth}{!}{\input{figures/F5_threshold_slope}}
+    \caption{Robustness slope massa tubuh terhadap log CMR setelah filtering
+    berdasarkan minimum catatan postmortem. Label menunjukkan jumlah spesies
+    yang tersisa pada tiap threshold.}
+    \label{fig:threshold-slope}
+\end{figure}
+
+\subsection{Residual Supresi}
+
+Model risiko naif berbasis exposure proxy memberi pembanding sederhana:
+berapa risiko yang diharapkan bila massa tubuh dan umur menjadi pendorong
+awal. Gambar~\ref{fig:residuals} menampilkan spesies dengan indeks supresi
+tertinggi. Spesies-spesies ini memiliki CMR lebih rendah daripada prediksi
+naif berdasarkan exposure proxy. Beberapa baris bernilai maksimum karena
+CMR yang tercatat nol meskipun catatan postmortem tersedia.
+
+\begin{figure}[t]
+    \centering
+    \input{figures/F2_suppression_residuals}
+    \caption{Spesies dengan residual supresi tertinggi menurut model risiko
+    naif berbasis exposure proxy. Nilai tinggi berarti CMR teramati lebih
+    rendah daripada prediksi exposure.}
+    \label{fig:residuals}
+\end{figure}
+
+Residual ini perlu dibaca hati-hati. CMR nol tidak selalu berarti spesies
+benar-benar bebas kanker. Nilai tersebut dapat dipengaruhi ukuran sampel,
+komposisi umur, kondisi pemeliharaan, dan bias pencatatan. Namun, residual
+tetap berguna sebagai alat prioritisasi. Spesies dengan exposure tinggi dan
+CMR rendah merupakan kandidat untuk studi mekanisme supresi, misalnya
+efisiensi DNA repair, respons checkpoint, apoptosis, atau arsitektur
+jaringan.
+
+Tabel~\ref{tab:top-residuals} memberi contoh bagaimana residual membantu
+menyaring kandidat. Spesies dengan risiko naif tinggi tetapi CMR teramati
+rendah tidak membuktikan langsung adanya mekanisme molekuler tertentu.
+Namun, pola tersebut memberi hipotesis yang dapat diuji. Misalnya, spesies
+besar dengan CMR rendah dapat diprioritaskan untuk pengukuran respons DNA
+damage, sedangkan spesies kecil dengan CMR rendah dapat dibandingkan untuk
+melihat apakah mekanisme yang sama muncul pada strategi hidup yang berbeda.
+Pendekatan ini memberi informasi tambahan dibanding hanya menanyakan apakah
+massa tubuh berkorelasi dengan kanker.
+
+Secara komputasional, indeks supresi adalah cara sederhana untuk mengubah
+Peto's Paradox menjadi daftar kandidat. Tanpa indeks ini, analisis berhenti
+pada pernyataan bahwa korelasi massa tubuh lemah. Dengan indeks ini,
+pertanyaan berubah menjadi lebih operasional: spesies mana yang berada
+di bawah prediksi naif, dan mekanisme apa yang mungkin menjelaskan deviasi
+tersebut. Di sinilah konsep biologi siklus sel menjadi relevan untuk tindak
+lanjut eksperimen.
+
+\subsection{Perbedaan Antarordo}
+
+Gambar~\ref{fig:orders} menunjukkan median CMR untuk ordo dengan sedikitnya
+tiga spesies. Perbedaan antarordo tampak lebih terstruktur daripada tren massa tubuh
+sederhana. Ini konsisten dengan Vincze dkk. yang menekankan bahwa faktor
+ekologi dan taksonomi, termasuk diet, berkontribusi pada variasi risiko
+kanker \cite{vincze2022}. Dengan demikian, Peto's Paradox tidak boleh
+dibaca sebagai klaim bahwa ukuran tubuh tidak relevan sama sekali, tetapi
+sebagai indikasi bahwa ukuran tubuh bukan satu-satunya sumbu penentu risiko.
+
+\begin{figure}[t]
+    \centering
+    \input{figures/F3_order_summary}
+    \caption{Median CMR per ordo untuk ordo dengan minimal tiga spesies
+    dalam dataset setelah filtering.}
+    \label{fig:orders}
+\end{figure}
+
+Secara kualitatif, ringkasan ordo menunjukkan bahwa risiko kanker tidak
+tersebar acak sepenuhnya. Beberapa ordo memiliki median CMR lebih tinggi
+meskipun median massa tubuhnya tidak selalu paling besar. Pola seperti ini
+relevan karena mekanisme supresi kanker berevolusi dalam konteks sejarah
+hidup, ekologi, dan fisiologi masing-masing garis keturunan. Ordo dengan
+median CMR tinggi dapat dipakai sebagai pembanding negatif, sedangkan ordo
+atau spesies besar dengan CMR rendah dapat dipakai sebagai kandidat studi
+supresi. Dengan demikian, analisis ordo memberi jembatan antara pola
+statistik dan desain eksperimen biologi lanjutan.
+
+Perbedaan antarordo juga memberi konteks biologis untuk interpretasi siklus
+sel. Jika suatu kelompok besar memiliki risiko rendah meskipun exposure
+tinggi, maka mekanisme supresi dapat melibatkan adaptasi molekuler, fisiologis,
+atau ekologi. Jalur TP53 pada gajah adalah salah satu contoh yang sudah
+didukung literatur \cite{sulak2016}, tetapi tidak perlu menjadi satu-satunya
+solusi evolusioner.
+
+Ringkasan ordo juga mengingatkan bahwa Peto's Paradox bukan hanya masalah
+ukuran tubuh. Diet, metabolisme, strategi reproduksi, dan lingkungan
+pemeliharaan dapat memengaruhi CMR. Karena itu, hasil regresi sederhana
+tidak dimaksudkan menggantikan model filogenetik Vincze dkk. Analisis ini
+lebih sempit: menunjukkan bahwa ketika data nyata dipakai, sinyal massa
+tetap terbatas, sehingga pertanyaan mekanistik tentang kontrol siklus sel
+tetap relevan.
+
+\subsection{Implikasi terhadap Regulasi Siklus Sel}
+
+Analisis ini tidak mengukur DNA repair, checkpoint, atau apoptosis secara
+langsung. Namun, pola empirisnya memberi alasan mengapa mekanisme tersebut
+relevan. Jika massa tubuh dan adult life expectancy menjelaskan
+sebagian kecil variasi CMR, maka risiko efektif per unit exposure dapat
+berbeda antarspesies. Perbedaan ini dapat muncul dari kontrol siklus sel
+yang lebih efektif, laju pembelahan jaringan yang lebih rendah, sistem imun
+yang lebih efektif, atau kombinasi mekanisme.
+
+Dalam kerangka siklus sel, residual supresi dapat dilihat sebagai hipotesis
+kerja. Spesies dengan residual tinggi dapat diuji lebih lanjut dengan data
+eksperimen seperti laju apoptosis setelah kerusakan DNA, kemampuan repair
+double-strand break, sensitivitas checkpoint G1/S, jumlah salinan gen tumor
+suppressor, atau laju mutasi somatik. Dengan cara ini, analisis komparatif
+menjadi jembatan dari data populasi lintas spesies menuju mekanisme seluler.
+
+Kaitan dengan meiosis ditempatkan sebagai pembanding, bukan fokus model.
+Meiosis juga membutuhkan checkpoint untuk mencegah kesalahan segregasi dan
+rekombinasi, tetapi kanker pada dataset ini berkaitan dengan mortalitas
+somatik. Oleh karena itu, proses mitotik dan kontrol kualitas DNA pada sel
+somatik menjadi kerangka interpretasi yang digunakan.
+
+\subsection{Manfaat Komputasi untuk Biologi}
+
+Keuntungan pendekatan komputasi pada studi ini adalah kemampuan mengubah
+pertanyaan biologis umum menjadi prosedur terukur. Peto's Paradox sering
+dijelaskan secara naratif, yaitu organisme besar tidak memiliki kanker
+setinggi yang diprediksi. Dalam analisis ini, narasi tersebut dipecah
+menjadi beberapa operasi: memilih variabel risiko, membangun exposure proxy,
+mengukur hubungan skala tubuh dengan CMR, menguji robustness, lalu
+menghitung residual terhadap model naif. Setiap langkah menghasilkan angka
+yang dapat diperiksa ulang.
+
+Pendekatan ini juga membantu menghindari kesimpulan yang terlalu cepat.
+Misalnya, slope negatif kecil pada massa tubuh tidak berarti massa tubuh
+melindungi dari kanker. Angka tersebut lebih tepat dibaca sebagai indikasi
+bahwa faktor lain ikut bekerja. Di sinilah konsep siklus sel menjadi
+relevan. Jika risiko efektif per exposure berbeda antarspesies, maka
+mekanisme yang mengubah risiko efektif, seperti repair, checkpoint, dan
+apoptosis, menjadi kandidat biologis yang masuk akal untuk diuji.
+
+\subsection{Keterbatasan}
+
+Dataset berasal dari mamalia di bawah perawatan manusia, bukan populasi liar. CMR bergantung pada catatan postmortem dan dapat dipengaruhi jumlah
+sampel. Exposure proxy memakai massa tubuh dan adult life expectancy, bukan
+jumlah sel aktual atau jumlah pembelahan per jaringan. Model residual juga
+tidak mengontrol filogeni. Karena itu, hasil tidak boleh dibaca sebagai
+kesimpulan kausal langsung. Kontribusi paper ini adalah pipeline
+komputasional yang menghubungkan data kanker lintas mamalia dengan
+pertanyaan mekanistik tentang supresi kanker dan regulasi siklus sel.
+
+Saran pengembangan berikutnya adalah memasukkan model filogenetik agar
+kemiripan evolusioner antarspesies tidak diperlakukan sebagai observasi
+independen. Pengembangan berikutnya adalah mengganti exposure proxy
+sederhana dengan estimasi jumlah sel dan laju pembelahan per jaringan.
+Terakhir, residual supresi dapat dikaitkan dengan data genomik, misalnya
+jumlah salinan tumor suppressor, tanda seleksi pada gen DNA repair, atau
+data eksperimen respons apoptosis setelah kerusakan DNA. Dengan tambahan
+tersebut, analisis komparatif dapat bergerak dari pola statistik menuju
+pengujian mekanisme biologis.

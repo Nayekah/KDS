@@ -1,0 +1,203 @@
+Species,Order,Female body mass (kg),Male body mass (kg),Species body mass (kg),Female sexual maturity (days),Male sexual maturity (days),Species sexual maturity (days),Source of sexual maturity,CMR,ICM,Adult life expectancy,Diet (Animal),Diet (Invertebrate),Diet (Vertebrate),Diet (Fish),Diet (Reptile),Diet (Bird),Diet (Mammals),No.individuals,No.dead individuals,No. neoplasia cases,No. individuals with available postmortem pathological records
+Acinonyx_jubatus,Carnivora,39.91,45.19,42.55,548,467,374,"smithsonian’s National Zoo & Conservation Biology Institute, https://nationalzoo.si.edu/animals/prevosts-squirrel",0.0356,0.0416,3533.86,1,0,1,0,0,0,1,1560,649,8,225
+Addax_nasomaculatus,Artiodactyla,102.28,118.99,110.63,1010,,,ZIMS,0.0357,0.0616,3127.89,0,0,0,0,0,0,0,762,336,3,84
+Aepyceros_melampus,Artiodactyla,42.37,53.93,48.15,484,404,374,ZIMS,0.0573,0.1412,2465.89,0,0,0,0,0,0,0,1007,537,9,157
+Ailurus_fulgens,Carnivora,5.92,6.03,5.98,574,563,,ZIMS,0.0707,0.0734,3580.26,0,0,0,0,0,0,0,1068,421,7,99
+Alces_alces,Artiodactyla,292.79,397.03,344.91,755,627,374,ZIMS,0.0000,0.0000,2103.78,0,0,0,0,0,0,0,246,147,0,33
+Alouatta_caraya,Primates,7.04,10.70,8.87,1220,950,,ZIMS,0.2000,,5868.08,0,0,0,0,0,0,0,278,78,5,25
+Ammotragus_lervia,Artiodactyla,55.44,79.43,67.44,373,,,ZIMS,0.0403,0.0853,3157.15,0,0,0,0,0,0,0,1298,589,5,124
+Antidorcas_marsupialis,Artiodactyla,28.95,30.75,29.85,232,522,,ZIMS,0.0060,0.0054,1728.06,0,0,0,0,0,0,0,654,400,1,166
+Antilocapra_americana,Artiodactyla,41.01,45.81,43.41,525,560,,ZIMS,0.0313,0.0379,2057.88,0,0,0,0,0,0,0,176,99,1,32
+Antilope_cervicapra,Artiodactyla,28.16,33.92,31.04,515,,,ZIMS,0.0000,0.0000,2307.02,0,0,0,0,0,0,0,1886,981,0,196
+Aonyx_cinerea,Carnivora,3.25,3.36,3.30,,,374,ZIMS,0.0610,0.0900,3242.65,1,1,1,0,1,0,0,1267,595,10,164
+Arctictis_binturong,Carnivora,17.83,16.58,17.21,947,860,,ZIMS,0.1481,0.1870,5238.72,1,0,1,1,0,1,0,291,97,4,27
+Ateles_fusciceps,Primates,9.22,9.17,9.19,1771,1870,,ZIMS,0.0952,,8212.16,0,0,0,0,0,0,0,289,67,2,21
+Ateles_geoffroyi,Primates,7.94,7.88,7.91,1965,1870,,ZIMS,0.1429,0.1903,8757.30,0,0,0,0,0,0,0,273,71,4,28
+Axis_axis,Artiodactyla,47.71,70.57,59.14,687,935,,ZIMS,0.0811,0.0709,3332.79,0,0,0,0,0,0,0,819,332,6,74
+Axis_porcinus,Artiodactyla,30.62,42.08,36.35,311,,,ZIMS,0.0345,0.0267,3381.52,0,0,0,0,0,0,0,361,131,1,29
+Bettongia_penicillata,Diprotodontia,1.06,1.07,1.06,184,,,ZIMS,0.0000,0.0000,2808.61,0,0,0,0,0,0,0,280,127,0,21
+Bison_bison,Artiodactyla,486.87,777.24,632.05,893,841,,ZIMS,0.0548,0.0525,4678.87,0,0,0,0,0,0,0,985,314,4,73
+Bison_bonasus,Artiodactyla,351.82,627.59,489.70,893,841,,ZIMS,0.0408,0.0446,4130.22,0,0,0,0,0,0,0,497,209,2,49
+Boselaphus_tragocamelus,Artiodactyla,177.59,229.76,203.68,868,,,ZIMS,0.0500,0.0495,3532.20,0,0,0,0,0,0,0,444,191,2,40
+Budorcas_taxicolor,Artiodactyla,234.84,342.22,288.53,810,747,,ZIMS,0.0357,0.0063,4042.38,0,0,0,0,0,0,0,399,128,1,28
+Callimico_goeldii,Primates,0.57,0.56,0.56,415,404,,ZIMS,0.0674,0.1825,3343.54,1,1,1,0,0,0,0,760,395,6,89
+Callithrix_geoffroyi,Primates,0.48,0.44,0.46,495,391,,ZIMS,0.0196,0.0139,2387.15,1,1,1,0,1,0,0,725,409,2,102
+Callithrix_jacchus,Primates,0.39,0.37,0.38,494,391,,ZIMS,0.0246,0.0133,2542.33,1,1,1,0,1,0,0,1001,546,3,122
+Callosciurus_prevostii,Rodentia,0.49,0.48,0.48,365,365,,"Smithsonian’s National Zoo & Conservation Biology Institute, https://nationalzoo.si.edu/animals/prevosts-squirrel",0.0667,0.0844,2386.65,0,0,0,0,0,0,0,258,160,3,45
+Canis_rufus,Carnivora,23.43,27.44,25.44,660,660,,https://www.futura-sciences.com/planete/definitions/zoologie-loup-rouge-8383/,0.2581,0.3273,3223.19,1,0,1,0,0,0,1,194,95,8,31
+Capra_caucasica,Artiodactyla,47.72,83.33,65.53,926,1111,,ZIMS,0.0000,0.0000,2178.04,0,0,0,0,0,0,0,384,222,0,58
+Capra_falconeri,Artiodactyla,34.77,60.80,47.79,763,,,ZIMS,0.0137,0.1157,2226.85,0,0,0,0,0,0,0,581,304,1,73
+Capra_ibex,Artiodactyla,37.36,73.96,55.66,840,1286,,ZIMS,0.0000,0.0000,2727.22,0,0,0,0,0,0,0,366,201,0,42
+Capra_nubiana,Artiodactyla,28.08,53.72,40.90,729,830,,ZIMS,0.0417,0.0291,2301.50,0,0,0,0,0,0,0,424,228,2,48
+Caracal_caracal,Carnivora,10.51,13.77,12.14,483,467,,ZIMS,0.0952,0.1345,3492.12,1,0,1,0,0,1,1,196,83,2,21
+Carollia_perspicillata,Chiroptera,0.02,0.02,0.02,264,264,374,ZIMS,0.0000,0.0000,2015.11,1,1,0,0,0,0,0,367,194,0,33
+Cebuella_pygmaea,Primates,0.15,0.14,0.15,681,653,,ZIMS,0.0244,0.0706,2158.90,1,1,0,0,0,0,0,1170,676,4,164
+Cercopithecus_neglectus,Primates,6.37,10.89,8.63,1633,2616,,ZIMS,0.1250,0.0779,4767.77,0,0,0,0,0,0,0,230,79,3,24
+Cervus_canadensis,Artiodactyla,295.60,349.82,322.71,852,730,,https://www.iucnredlist.org/species/55997823/55997871,0.0000,0.0000,4139.74,,,,,,,,407,175,0,39
+Cervus_elaphus,Artiodactyla,203.42,160.28,181.85,875,747,374,ZIMS,0.0000,0.0000,3589.92,0,0,0,0,0,0,0,595,260,0,61
+Cervus_nippon,Artiodactyla,57.54,80.36,68.95,571,512,,ZIMS,0.0164,0.0124,2727.23,0,0,0,0,0,0,0,1239,671,2,122
+Choloepus_didactylus,Pilosa,9.20,8.35,8.77,1263,1683,,ZIMS,0.0455,,6523.61,0,0,0,0,0,0,0,323,77,1,22
+Chrysocyon_brachyurus,Carnivora,24.56,27.24,25.90,748,,,ZIMS,0.1286,0.1324,3063.38,1,1,1,0,1,1,1,393,203,9,70
+Colobus_guereza,Primates,10.92,12.85,11.88,1765,1745,,ZIMS,0.0380,0.0139,4653.31,0,0,0,0,0,0,0,694,249,3,79
+Connochaetes_gnou,Artiodactyla,128.86,134.18,131.52,731,1122,,ZIMS,0.0000,0.0000,3279.07,0,0,0,0,0,0,0,158,76,0,30
+Connochaetes_taurinus,Artiodactyla,170.07,219.66,194.86,475,934,374,ZIMS,0.0093,0.0079,3117.78,0,0,0,0,0,0,0,781,340,1,107
+Cricetus_cricetus,Rodentia,0.24,0.30,0.27,64,57,,ZIMS,0.2083,0.1488,922.54,1,1,1,0,1,0,0,1333,127,5,24
+Ctenodactylus_gundi,Rodentia,0.29,0.27,0.28,327,,,ZIMS,0.0313,0.0137,1222.44,0,0,0,0,0,0,0,388,252,1,32
+Cuon_alpinus,Carnivora,18.63,21.20,19.92,366,374,,ZIMS,0.1429,0.1771,2870.34,1,1,1,0,0,0,1,437,216,7,49
+Cynictis_penicillata,Carnivora,1.08,1.08,1.08,748,,,ZIMS,0.0968,0.0335,2953.93,1,1,1,0,1,1,1,291,133,3,31
+Cynomys_ludovicianus,Rodentia,0.99,1.04,1.01,838,747,,ZIMS,0.1613,,1838.31,0,0,0,0,0,0,0,436,221,5,31
+Dama_dama,Artiodactyla,46.03,63.59,54.81,518,471,,ZIMS,0.0207,0.0131,2732.30,0,0,0,0,0,0,0,1368,703,3,145
+Dama_mesopotamica,Artiodactyla,59.59,87.76,73.68,487,507,,https://genomics.senescence.info/species/entry.php?species=Dama_dama,0.1000,0.1516,3096.06,0,0,0,0,0,0,0,316,129,3,30
+Damaliscus_pygargus,Artiodactyla,70.59,71.92,71.26,724,,,ZIMS,0.0000,0.0000,2480.66,0,0,0,0,0,0,0,407,225,0,68
+Dasyprocta_azarae,Rodentia,3.10,3.20,3.15,340,,,"Closest species : 
+- no pacifici, no lovegrove, no harvey, no millar 
+- wootton : D. leporina : 295 days
+AnAge&Ernest : D. leporina : 193 (f) / D. punctata : 487 (f) ",0.0000,0.0000,2752.38,0,0,0,0,0,0,0,380,136,0,24
+Dasyprocta_leporina,Rodentia,3.48,3.21,3.34,198,,,ZIMS,0.0294,0.0601,2236.38,0,0,0,0,0,0,0,320,203,1,34
+Dasyuroides_byrnei,Dasyuromorphia,0.12,0.14,0.13,256,221,374,ZIMS,0.5714,0.5210,1030.42,1,1,1,0,1,1,1,139,93,16,28
+Desmodus_rotundus,Chiroptera,0.03,0.03,0.03,292,292,,ZIMS,0.0769,0.1548,3650.27,1,0,0,0,0,0,0,324,127,3,39
+Dolichotis_patagonum,Rodentia,7.58,7.68,7.63,160,187,249,ZIMS,0.0000,0.0000,1834.76,0,0,0,0,0,0,0,1730,978,0,213
+Echinops_telfairi,Afrosoricida,0.16,0.14,0.15,336,374,,ZIMS,0.0571,0.0247,2720.27,1,1,1,0,0,0,1,539,245,2,35
+Eidolon_helvum,Chiroptera,0.29,0.31,0.30,,,374,ZIMS,0.1429,,5507.59,0,0,0,0,0,0,0,569,158,5,35
+Elaphurus_davidianus,Artiodactyla,175.44,209.38,192.41,841,1214,,ZIMS,0.0164,0.0132,3076.13,0,0,0,0,0,0,0,528,288,1,61
+Equus_grevyi,Perissodactyla,392.05,386.91,389.48,1371,1496,,ZIMS,0.0385,0.0272,4916.47,0,0,0,0,0,0,0,496,199,2,52
+Equus_hemionus,Perissodactyla,218.20,227.21,222.71,1078,1215,374,ZIMS,0.0303,0.0153,4329.82,0,0,0,0,0,0,0,309,130,1,33
+Equus_quagga,Perissodactyla,293.10,295.36,294.23,896,739,374,ZIMS,0.0097,0.0049,5446.34,0,0,0,0,0,0,0,1343,436,1,103
+Equus_zebra,Perissodactyla,335.30,312.66,323.98,1108,1310,,ZIMS,0.0000,0.0000,4320.68,0,0,0,0,0,0,0,212,80,0,24
+Erythrocebus_patas,Primates,8.06,12.91,10.49,994,1433,,ZIMS,0.0588,0.0226,4237.94,0,0,0,0,0,0,0,241,101,2,34
+Eudorcas_thomsonii,Artiodactyla,18.63,22.32,20.47,368,184,748,ZIMS,0.0390,0.0992,2162.64,0,0,0,0,0,0,0,447,259,3,77
+Eulemur_macaco,Primates,2.51,2.42,2.47,624,561,,ZIMS,0.1200,0.1503,5478.84,0,0,0,0,0,0,0,232,82,3,25
+Felis_margarita,Carnivora,2.41,3.18,2.79,281,,,ZIMS,0.1212,0.1769,3559.46,1,0,1,0,1,1,1,211,100,4,33
+Felis_silvestris,Carnivora,3.29,3.99,3.64,313,311,,ZIMS,0.0250,0.0453,3555.10,1,1,1,0,1,1,1,346,158,1,40
+Galago_senegalensis,Primates,0.19,0.23,0.21,273,307,,ZIMS,0.0000,0.0000,2600.14,1,1,0,0,0,0,0,356,122,0,25
+Gazella_cuvieri,Artiodactyla,23.85,24.65,24.25,357,184,748,ZIMS,0.0000,0.0000,2317.93,0,0,0,0,0,0,0,89,48,0,20
+Gazella_dorcas,Artiodactyla,12.15,13.91,13.03,586,636,,ZIMS,0.0769,0.1117,2083.34,0,0,0,0,0,0,0,266,147,3,39
+Gazella_leptoceros,Artiodactyla,13.50,16.33,14.92,161,,,ZIMS,0.0000,0.0000,1835.87,0,0,0,0,0,0,0,141,89,0,26
+Gazella_marica,Artiodactyla,14.91,17.56,16.23,384,463,,"Data on closest relatives from AnAge: 
+- subgutturosa : 646 (f) / 746 (m)
+- leptoceros : 157 (f) 
+- cuvieri : 349 (f) / 180 (m) ",0.0000,,2476.22,,,,,,,,405,146,0,33
+Gazella_subgutturosa,Artiodactyla,17.62,21.11,19.37,640,764,,ZIMS,0.0000,0.0000,1942.64,0,0,0,0,0,0,0,348,175,0,49
+Giraffa_camelopardalis,Artiodactyla,758.19,1065.01,911.60,1361,1683,,ZIMS,0.0123,0.0102,4568.44,0,0,0,0,0,0,0,1836,648,2,163
+Gorilla_gorilla,Primates,92.87,181.06,136.96,2868,4111,374,ZIMS,0.0455,,10705.03,0,0,0,0,0,0,0,679,95,1,22
+Helogale_parvula,Carnivora,0.45,0.41,0.43,451,,,ZIMS,0.0000,0.0000,3156.57,1,1,0,0,0,0,0,476,184,0,35
+Heterocephalus_glaber,Rodentia,0.05,0.05,0.05,234,,,ZIMS,0.0233,,4726.02,0,0,0,0,0,0,0,632,217,1,43
+Hippopotamus_amphibius,Artiodactyla,1413.51,1585.40,1499.45,1421,1310,,ZIMS,0.0000,0.0000,11384.95,0,0,0,0,0,0,0,391,64,0,22
+Hippotragus_equinus,Artiodactyla,218.26,268.88,243.57,744,833,,ZIMS,0.0000,0.0000,3082.81,0,0,0,0,0,0,0,303,136,0,35
+Hippotragus_niger,Artiodactyla,187.54,213.56,200.55,781,1212,,ZIMS,0.0141,0.0088,2838.43,0,0,0,0,0,0,0,477,237,1,71
+Hydrochoerus_hydrochaeris,Rodentia,50.07,48.88,49.47,1035,1098,,ZIMS,0.0878,0.0820,1913.90,0,0,0,0,0,0,0,1027,560,13,148
+Hylobates_lar,Primates,7.43,7.57,7.50,2767,1869,,ZIMS,0.1250,,8411.62,0,0,0,0,0,0,0,383,87,3,24
+Hystrix_africaeaustralis,Rodentia,16.56,15.14,15.85,414,399,,ZIMS,0.0250,,4472.39,0,0,0,0,0,0,0,329,112,1,40
+Hystrix_indica,Rodentia,17.79,17.43,17.61,375,390,,Closest species with data: https://genomics.senescence.info/species/entry.php?species=Hystrix_africaeaustralis,0.0976,0.0674,4995.71,0,0,0,0,0,0,0,446,141,4,41
+Jaculus_jaculus,Rodentia,0.06,0.06,0.06,335,140,,ZIMS,0.0690,0.0609,900.42,0,0,0,0,0,0,0,129,116,2,29
+Kobus_ellipsiprymnus,Artiodactyla,151.28,174.51,162.90,706,374,374,ZIMS,0.0143,0.0070,3330.55,0,0,0,0,0,0,0,736,354,1,70
+Kobus_leche,Artiodactyla,71.40,95.23,83.32,871,1075,,ZIMS,0.0081,0.0137,3275.13,0,0,0,0,0,0,0,959,429,1,124
+Kobus_megaceros,Artiodactyla,66.91,85.62,76.27,714,747,,ZIMS,0.1231,0.1866,2981.97,0,0,0,0,0,0,0,500,241,8,65
+Lagurus_lagurus,Rodentia,0.02,0.02,0.02,39,45,,ZIMS,0.0500,0.0493,402.17,0,0,0,0,0,0,0,42,37,1,20
+Lemur_catta,Primates,2.78,2.95,2.87,650,934,935,ZIMS,0.0677,0.1326,5396.88,0,0,0,0,0,0,0,3668,989,17,251
+Leontopithecus_chrysomelas,Primates,0.74,0.76,0.75,633,747,,ZIMS,0.0702,0.0293,3777.11,1,1,1,0,1,0,0,522,220,4,57
+Leontopithecus_rosalia,Primates,0.67,0.69,0.68,615,747,,ZIMS,0.0000,0.0000,3919.97,1,1,1,0,1,0,0,705,297,0,78
+Leopardus_pardalis,Carnivora,9.78,11.92,10.85,636,614,,ZIMS,0.1935,0.1559,5783.08,1,0,1,1,1,1,1,229,90,6,31
+Leptailurus_serval,Carnivora,10.46,13.36,11.91,838,,,ZIMS,0.0980,0.1586,4402.02,1,0,1,0,0,0,1,400,150,5,51
+Litocranius_walleri,Artiodactyla,23.88,27.32,25.60,368,,,ZIMS,0.0357,0.0838,1757.56,0,0,0,0,0,0,0,181,121,1,28
+Lontra_canadensis,Carnivora,7.64,9.09,8.37,810,747,374,ZIMS,0.1364,0.1199,4481.42,1,1,1,1,0,0,0,214,83,3,22
+Lutra_lutra,Carnivora,5.69,7.64,6.66,514,561,,ZIMS,0.0000,0.0000,3164.10,1,0,1,1,0,0,0,243,112,0,27
+Lycaon_pictus,Carnivora,26.97,31.24,29.10,687,654,,ZIMS,0.1409,0.1566,2649.61,1,0,1,0,0,0,1,952,505,21,149
+Lynx_lynx,Carnivora,17.92,23.09,20.50,618,1028,,ZIMS,0.0882,0.0392,4925.26,1,0,1,0,0,1,1,502,178,3,34
+Macaca_fascicularis,Primates,7.74,6.14,6.94,1290,1581,374,ZIMS,0.0357,0.0409,4822.26,1,1,0,0,0,0,0,265,106,1,28
+Macaca_fuscata,Primates,10.67,13.18,11.93,1567,1402,374,ZIMS,0.0833,0.0640,6508.84,1,1,1,0,0,0,0,833,247,6,72
+Macaca_nigra,Primates,7.79,12.11,9.95,1637,,,ZIMS,0.0000,0.0000,4607.74,1,1,0,0,0,0,0,286,108,0,24
+Macaca_silenus,Primates,6.65,11.02,8.83,1511,2571,,ZIMS,0.0667,0.0321,5794.96,1,1,0,0,0,0,0,447,165,2,30
+Macaca_sylvanus,Primates,12.61,12.73,12.67,1462,2055,374,ZIMS,0.0000,,4835.50,0,0,0,0,0,0,0,420,114,0,33
+Macropus_giganteus,Diprotodontia,29.07,46.99,38.03,654,1321,,ZIMS,0.1200,0.2618,3315.54,0,0,0,0,0,0,0,230,92,3,25
+Macropus_parma,Diprotodontia,4.01,4.75,4.38,434,635,,ZIMS,0.0000,0.0000,1477.29,0,0,0,0,0,0,0,394,284,0,83
+Macropus_rufogriseus,Diprotodontia,11.40,15.67,13.53,404,623,,ZIMS,0.0120,0.0129,1966.66,0,0,0,0,0,0,0,1678,1019,3,251
+Macropus_rufus,Diprotodontia,23.81,44.71,34.26,529,825,,ZIMS,0.1007,0.1490,2275.31,0,0,0,0,0,0,0,931,524,14,139
+Macroscelides_proboscideus,Macroscelidea,0.04,0.04,0.04,45,,,ZIMS,0.0000,0.0000,1135.71,1,1,0,0,0,0,0,432,310,0,27
+Madoqua_kirkii,Artiodactyla,5.34,4.68,5.01,246,311,,ZIMS,0.0164,0.0098,2140.70,0,0,0,0,0,0,0,382,187,1,61
+Mico_argentatus,Primates,0.38,0.36,0.37,311,342,,ZIMS,0.0357,0.0254,2689.83,0,0,0,0,0,0,0,203,97,1,28
+Mico_melanurus,Primates,0.39,0.37,0.38,311,342,,ZIMS,0.0476,0.0364,2116.19,1,1,1,0,1,0,0,70,43,1,21
+Microcebus_murinus,Primates,0.08,0.08,0.08,287,249,,ZIMS,0.1290,0.0654,2773.30,1,1,1,0,1,0,0,296,165,4,31
+Mungos_mungo,Carnivora,1.65,1.54,1.60,315,,,ZIMS,0.0682,0.0224,2962.10,1,1,1,0,0,0,0,723,308,3,44
+Muntiacus_muntjak,Artiodactyla,21.75,25.82,23.79,276,340,,ZIMS,0.0000,,4266.89,0,0,0,0,0,0,0,293,88,0,27
+Muntiacus_reevesi,Artiodactyla,9.63,10.96,10.30,249,,,ZIMS,0.0097,0.0143,2857.87,0,0,0,0,0,0,0,778,401,1,103
+Mustela_lutreola,Carnivora,0.72,1.09,0.91,317,331,,ZIMS,0.1538,0.1233,2261.92,1,1,1,0,1,0,1,373,117,6,39
+Mustela_nigripes,Carnivora,0.83,1.02,0.92,374,374,,ZIMS,0.1111,0.0998,1471.50,1,0,1,0,0,0,1,309,182,5,45
+Myocastor_coypus,Rodentia,5.23,5.86,5.54,158,156,374,ZIMS,0.0370,0.0305,951.73,0,0,0,0,0,0,0,280,234,1,27
+Nanger_dama,Artiodactyla,46.56,57.56,52.06,540,365,,https://nationalzoo.si.edu/animals/dama-gazelle; https://www.researchgate.net/publication/262684087_Nanger_dama_Dama_Gazelle,0.0187,0.0196,2331.08,0,0,0,0,0,0,0,656,328,2,107
+Nasua_nasua,Carnivora,4.51,5.68,5.09,810,747,,ZIMS,0.0394,0.1010,3252.73,1,1,0,0,0,0,0,1098,519,5,127
+Neofelis_nebulosa,Carnivora,14.35,21.43,17.89,771,1121,,ZIMS,0.2609,0.2910,4215.39,1,0,1,0,0,0,1,286,96,6,23
+Nycticebus_pygmaeus,Primates,0.57,0.55,0.56,494,,,ZIMS,0.1875,0.1638,3585.03,1,1,1,0,1,0,1,287,150,6,32
+Odocoileus_virginianus,Artiodactyla,42.20,48.05,45.12,321,427,374,ZIMS,0.0000,0.0000,3189.76,0,0,0,0,0,0,0,276,149,0,46
+Oryx_beisa,Artiodactyla,142.88,150.68,146.78,585,563,,ZIMS,0.0000,0.0000,4041.11,0,0,0,0,0,0,0,190,63,0,22
+Oryx_dammah,Artiodactyla,137.29,139.84,138.57,617,563,,ZIMS,0.0164,0.0121,3507.35,0,0,0,0,0,0,0,1282,556,2,122
+Oryx_gazella,Artiodactyla,165.90,162.82,164.36,581,563,,ZIMS,0.0000,0.0000,3094.84,0,0,0,0,0,0,0,396,191,0,47
+Oryx_leucoryx,Artiodactyla,87.04,86.18,86.61,686,563,,ZIMS,0.0000,0.0000,3425.35,0,0,0,0,0,0,0,578,231,0,56
+Otocolobus_manul,Carnivora,3.98,4.40,4.19,374,,,ZIMS,0.0857,0.0932,2688.23,1,0,1,0,0,1,1,292,158,3,35
+Otocyon_megalotis,Carnivora,4.77,4.85,4.81,374,,265,ZIMS,0.2609,0.1993,4006.59,1,1,1,0,0,1,1,201,69,6,23
+Ovibos_moschatus,Artiodactyla,228.28,296.46,262.37,1136,1308,,ZIMS,0.0000,0.0000,2993.99,0,0,0,0,0,0,0,149,76,0,32
+Pachyuromys_duprasi,Rodentia,0.05,0.07,0.06,,62,,ZIMS,0.0500,,1455.81,1,1,0,0,0,0,0,137,74,1,20
+Pan_troglodytes,Primates,56.17,63.73,59.95,3620,2990,374,ZIMS,0.0208,,10519.64,0,0,0,0,0,0,0,964,164,1,48
+Panthera_leo,Carnivora,135.62,188.26,161.94,1121,1121,374,ZIMS,0.1275,0.1197,4678.41,1,0,1,0,0,0,1,2084,711,26,204
+Panthera_onca,Carnivora,50.71,63.50,57.10,838,747,,ZIMS,0.2439,0.2200,5659.18,1,0,1,1,1,0,1,354,135,10,41
+Panthera_pardus,Carnivora,37.48,49.14,43.31,985,789,,ZIMS,0.0500,0.0566,5159.85,1,0,1,0,0,0,1,721,279,5,100
+Panthera_tigris,Carnivora,103.30,139.59,121.44,1294,1449,,ZIMS,0.1327,0.1353,4239.66,1,0,1,0,0,0,1,1671,710,26,196
+Panthera_uncia,Carnivora,34.61,39.26,36.94,795,747,,ZIMS,0.0989,0.1153,4229.79,1,0,1,0,0,0,1,573,257,9,91
+Papio_hamadryas,Primates,15.05,25.85,20.45,1592,1804,,ZIMS,0.0250,0.0229,4958.02,1,1,0,0,0,0,0,1046,413,1,40
+Petaurus_breviceps,Diprotodontia,0.09,0.11,0.10,242,467,,ZIMS,0.1071,0.0544,2622.54,1,1,1,0,0,0,0,302,161,3,28
+Phacochoerus_africanus,Artiodactyla,81.53,101.73,91.63,592,592,,ZIMS,0.1778,0.2358,3034.37,0,0,0,0,0,0,0,362,166,8,45
+Phoca_vitulina,Carnivora,62.25,84.75,73.50,1443,1495,374,ZIMS,0.0000,0.0000,6787.47,,,,,,,,319,86,0,20
+Pithecia_pithecia,Primates,1.78,2.14,1.96,794,1495,,ZIMS,0.0000,0.0000,5126.24,0,0,0,0,0,0,0,538,176,0,38
+Pongo_pygmaeus,Primates,59.43,99.35,79.39,2820,2616,,ZIMS,0.0909,0.0719,10468.77,1,1,0,0,0,0,0,332,57,2,22
+Potamochoerus_porcus,Artiodactyla,69.12,78.98,74.05,1041,1122,,ZIMS,0.0185,0.0199,3194.94,0,0,0,0,0,0,0,534,212,1,54
+Prionailurus_bengalensis,Carnivora,3.89,4.88,4.39,442,,,ZIMS,0.0370,0.0140,3218.01,1,0,1,1,1,1,1,241,122,1,27
+Prionailurus_viverrinus,Carnivora,8.64,11.73,10.18,300,300,,https://animals.sandiegozoo.org/animals/fishing-cat,0.0500,0.1082,3726.89,1,1,1,1,1,1,1,249,106,1,20
+Procavia_capensis,Hyracoidea,3.23,3.45,3.34,572,512,,ZIMS,0.0649,0.0530,1839.65,0,0,0,0,0,0,0,708,396,5,77
+Procyon_lotor,Carnivora,5.91,7.46,6.68,369,374,,ZIMS,0.2000,0.1559,3894.25,1,1,1,1,1,1,1,554,217,11,55
+Pseudois_nayaur,Artiodactyla,38.79,51.90,45.35,692,,,ZIMS,0.0000,0.0000,3074.35,0,0,0,0,0,0,0,304,118,0,34
+Pteropus_giganteus,Chiroptera,0.59,0.72,0.65,374,374,,ZIMS,0.0370,0.1466,3722.03,0,0,0,0,0,0,0,188,100,1,27
+Pteropus_lylei,Chiroptera,0.42,0.49,0.46,540,540,,Pierson and Rainey (1992),0.0000,,4444.70,0,0,0,0,0,0,0,323,111,0,23
+Pteropus_rodricensis,Chiroptera,0.35,0.36,0.35,540,540,,"Pacifici, Michela, et al. ""Generation length for mammals."" Nature Conservation 5 (2013): 89.",0.0103,0.0078,3647.13,0,0,0,0,0,0,0,1223,504,1,97
+Pteropus_vampyrus,Chiroptera,1.11,1.20,1.15,540,540,,https://books.google.fr/books?id=T37sFCl43E8C&pg=PA268&lpg=PA268&dq=pierson+rainey+1992+pteropus&source=bl&ots=rnDeZYRSGZ&sig=ACfU3U1rRLlo5oxx_iy4Z-uhHMpyJgNYVw&hl=en&sa=X&ved=2ahUKEwituZLZia3qAhXnzoUKHUhvB18Q6AEwDXoECAoQAQ#v=onepage&q=pierson%20rainey%201992%20pteropus&f=false,0.1667,0.0606,5213.51,0,0,0,0,0,0,0,299,91,4,24
+Pudu_puda,Artiodactyla,8.69,9.34,9.02,247,328,,ZIMS,0.0000,0.0000,2000.25,0,0,0,0,0,0,0,279,181,0,46
+Puma_concolor,Carnivora,43.38,58.50,50.94,902,934,,ZIMS,0.1176,0.1191,4386.41,1,0,1,0,0,0,1,225,104,4,34
+Pygathrix_nemaeus,Primates,10.88,13.11,11.99,1121,374,,ZIMS,0.0000,,4313.66,0,0,0,0,0,0,0,104,34,0,21
+Rangifer_tarandus,Artiodactyla,86.77,128.08,107.42,695,696,374,ZIMS,0.0345,0.0458,2735.58,0,0,0,0,0,0,0,1023,530,3,87
+Rousettus_aegyptiacus,Chiroptera,0.12,0.15,0.14,374,374,,ZIMS,0.1250,0.0672,3516.46,0,0,0,0,0,0,0,515,245,3,24
+Rousettus_leschenaultii,Chiroptera,0.08,0.10,0.09,154,466,,ZIMS,0.0000,0.0000,2073.84,0,0,0,0,0,0,0,116,72,0,24
+Rucervus_duvaucelii,Artiodactyla,102.77,173.14,137.95,1028,,,ZIMS,0.0000,0.0000,3042.57,0,0,0,0,0,0,0,361,183,0,59
+Rucervus_eldii,Artiodactyla,75.62,97.38,86.50,553,,,ZIMS,0.0111,0.0078,3135.04,0,0,0,0,0,0,0,707,347,1,90
+Rusa_alfredi,Artiodactyla,35.42,45.35,40.39,604,,,ZIMS,0.0286,0.0157,2446.06,0,0,0,0,0,0,0,178,107,1,35
+Saguinus_bicolor,Primates,0.54,0.50,0.52,547,607,,https://animaldiversity.org/accounts/Saguinus_bicolor/,0.0000,0.0000,3546.76,1,1,1,0,1,0,0,268,111,0,41
+Saguinus_imperator,Primates,0.57,0.59,0.58,559,747,,ZIMS,0.0103,0.0032,2758.02,1,1,0,0,0,0,0,855,421,1,97
+Saguinus_labiatus,Primates,0.61,0.56,0.59,547,607,,"Mean for closest Sanguinus sp. in AnAge:
+- S. oedipus : 548 (f) 550 (m)
+- S. midas : 608 (f) 
+- S. imperator : 546 (f) 730 (m)
+- S. geoffroyi : 548 (f)
+- S. mystax : 486 (f) 540 (m)  ",0.0000,0.0000,2551.53,1,1,1,0,1,0,0,210,122,0,32
+Saguinus_midas,Primates,0.54,0.53,0.53,631,,,ZIMS,0.0000,0.0000,3145.25,1,1,1,0,1,0,0,387,189,0,25
+Saguinus_oedipus,Primates,0.58,0.55,0.57,618,563,,ZIMS,0.0921,0.1746,3538.22,1,1,1,0,1,0,0,1451,683,14,152
+Saimiri_boliviensis,Primates,0.78,1.09,0.94,1087,1870,,ZIMS,0.0071,0.0037,4289.56,1,1,0,0,0,0,0,1214,436,1,140
+Saimiri_sciureus,Primates,0.76,1.08,0.92,1072,1870,,ZIMS,0.0316,,3961.63,1,1,1,0,0,0,0,1072,413,3,95
+Sapajus_apella,Primates,3.10,4.22,3.66,1480,374,,ZIMS,0.0263,,7343.08,1,1,1,0,1,1,1,550,127,1,38
+Sciurus_vulgaris,Rodentia,0.39,0.33,0.36,306,312,,ZIMS,0.0357,0.0509,1387.36,0,0,0,0,0,0,0,222,156,1,28
+Speothos_venaticus,Carnivora,7.95,7.22,7.59,319,374,,ZIMS,0.0313,0.0170,2546.02,1,0,1,0,0,0,1,289,134,1,32
+Suricata_suricatta,Carnivora,1.03,1.05,1.04,364,374,,ZIMS,0.0775,0.1282,2851.01,1,1,1,0,0,0,0,4234,1694,32,413
+Syncerus_caffer,Artiodactyla,438.19,444.97,441.58,1506,1714,374,ZIMS,0.0000,0.0000,5026.79,0,0,0,0,0,0,0,305,98,0,22
+Tapirus_indicus,Perissodactyla,339.96,316.86,328.41,1095,1095,,https://genomics.senescence.info/species/entry.php?species=Acrocodia_indica,0.2000,0.0897,5722.04,0,0,0,0,0,0,0,204,68,4,20
+Tapirus_terrestris,Perissodactyla,224.15,190.47,207.31,867,1121,,ZIMS,0.0238,0.0080,5960.33,0,0,0,0,0,0,0,477,131,1,42
+Theropithecus_gelada,Primates,13.65,22.39,18.02,1429,2242,374,ZIMS,0.0000,0.0000,5585.56,0,0,0,0,0,0,0,363,73,0,22
+Tragelaphus_angasii,Artiodactyla,59.74,98.29,79.02,463,,,ZIMS,0.0196,0.0102,2412.19,0,0,0,0,0,0,0,683,318,2,102
+Tragelaphus_eurycerus,Artiodactyla,209.60,290.41,250.01,840,936,,ZIMS,0.0423,0.0294,2899.29,0,0,0,0,0,0,0,606,321,3,71
+Tragelaphus_imberbis,Artiodactyla,63.64,81.76,72.70,613,516,,ZIMS,0.0526,0.0693,2455.95,0,0,0,0,0,0,0,282,154,2,38
+Tragelaphus_oryx,Artiodactyla,338.43,407.62,373.02,682,585,,ZIMS,0.0147,0.0068,3094.01,0,0,0,0,0,0,0,1014,476,2,136
+Tragelaphus_strepsiceros,Artiodactyla,158.07,228.85,193.46,544,,,ZIMS,0.0336,0.0321,2528.44,0,0,0,0,0,0,0,700,391,4,119
+Tragulus_javanicus,Artiodactyla,1.83,1.60,1.71,168,171,,ZIMS,0.0000,,2498.25,0,0,0,0,0,0,0,277,158,0,47
+Tupaia_belangeri,Scandentia,0.18,0.20,0.19,121,124,,ZIMS,0.1250,0.0963,1754.06,1,1,0,0,0,0,0,331,212,3,24
+Ursus_arctos,Carnivora,202.12,328.99,265.55,1476,1344,374,ZIMS,0.1000,0.0667,6957.18,1,1,1,1,0,0,1,389,125,4,40
+Ursus_maritimus,Carnivora,259.36,430.16,344.76,1757,1775,,ZIMS,0.0455,0.0489,7678.25,1,0,1,1,0,0,1,217,74,1,22
+Varecia_rubra,Primates,3.84,3.65,3.75,664,623,,ZIMS,0.1852,0.1565,6441.78,0,0,0,0,0,0,0,719,220,10,54
+Varecia_variegata,Primates,3.97,3.65,3.81,664,623,,ZIMS,0.0659,0.0742,5743.57,0,0,0,0,0,0,0,972,338,6,91
+Vulpes_zerda,Carnivora,1.33,1.40,1.36,290,281,,ZIMS,0.1429,0.1481,3451.83,1,1,1,0,1,1,1,454,164,6,42
+Zalophus_californianus,Carnivora,86.95,196.76,141.85,1585,1776,,ZIMS,0.0889,0.1491,5914.62,,,,,,,,561,188,4,45

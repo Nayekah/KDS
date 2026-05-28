@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+data/*.gz
+doc/tex/*.aux
+doc/tex/*.bbl
+doc/tex/*.bcf
+doc/tex/*.blg
+doc/tex/*.log
+doc/tex/*.out
+doc/tex/*.run.xml
+doc/tex/*.toc

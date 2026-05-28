@@ -1,0 +1,24 @@
+Variable name,Legend
+Species,Binomial scientific name of the taxa
+Order,Taxonomic order of the species
+Female body mass (kg),Average body mass of adult females (kg)
+Male body mass (kg),Average body mass of adult males (kg)
+Species body mass (kg),Mean of average male and female body mass (kg)
+Female sexual maturity (days),Age at sexual maturity in females (days)
+Male sexual maturity (days),Age at sexual maturity in males (days)
+Species sexual maturity (days),Age at sexual maturity in the species (days) – only used if no sex-specific age at maturity was available
+Source of sexual maturity,Source of age at maturity information
+CMR,Adult cancer mortality risk. The variable takes values between 0 and 1.
+ICM,Incidence of cancer mortality in adults. The variable takes values between 0 and 1.
+Adult life expectancy,"Average number of days lived after sexual maturity was reached, i.e. remaining life expectancy."
+Diet (Animal),"Animal presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014)."
+Diet (Invertebrate),"Invertebrate prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014)."
+Diet (Vertebrate),"Vertebrate prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014)."
+Diet (Fish),"Fish prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014)."
+Diet (Reptile),"Reptile prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014)."
+Diet (Bird),"Bird prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014)."
+Diet (Mammals),"Mammalian prey presence (1) or absence (0) in the diet. Following: Kissling et al. Ecol. Evol. 4, 2913–2930 (2014)."
+No. individuals,Total number of individuals per species in the database.
+No. dead individuals,Total number of dead individuals per species in the database.
+No. neoplasia cases,"Total number of neoplasia cases recorded in each species, that were considered to be significant contributors to the death of the animals. Please note that (although possible) benign tumors are unlikely to be reported here."
+No. individuals with available postmortem pathological records,Total number of dead individuals whose pathological records (i.e. most likely causes of death) were identified and entered in the husbandry database.

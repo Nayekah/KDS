@@ -1,0 +1,60 @@
+% !TEX root = main.tex
+\documentclass[conference]{IEEEtran}
+\input{preamble}
+
+\begin{document}
+
+\title{Pemodelan Peto's Paradox melalui Regulasi Siklus Sel dalam Supresi Risiko Kanker}
+
+\author{
+\IEEEauthorblockN{
+Mochammad Fariz Rifqi Rizqulloh\textsuperscript{1},
+Muhammad Jibril Ibrahim\textsuperscript{2},
+Nayaka Ghana Subrata\textsuperscript{3}}
+\IEEEauthorblockA{
+Program Studi Teknik Informatika,
+Sekolah Teknik Elektro dan Informatika\\
+Institut Teknologi Bandung, Bandung, Indonesia\\
+\textsuperscript{1}13523069@std.stei.itb.ac.id,
+\textsuperscript{2}13523085@std.stei.itb.ac.id,
+\textsuperscript{3}13523090@std.stei.itb.ac.id}
+}
+
+\maketitle
+
+\begin{abstract}
+Kanker muncul ketika sel dengan kerusakan genetik lolos dari kontrol siklus
+sel dan terus membelah. Secara intuitif, organisme besar dan berumur
+panjang diperkirakan memiliki risiko kanker lebih tinggi karena memiliki
+lebih banyak sel dan lebih banyak kesempatan akumulasi mutasi. Namun,
+Peto's Paradox menunjukkan bahwa risiko kanker antarspesies tidak meningkat
+secara proporsional terhadap ukuran tubuh. Paper ini menganalisis paradoks
+tersebut menggunakan dataset kanker lintas mamalia dari Vincze dkk.,
+yang memuat cancer mortality risk, massa tubuh, adult life expectancy,
+jumlah catatan postmortem, dan kasus neoplasia. Setelah filtering nilai
+kosong, 172 spesies dianalisis. Regresi log massa tubuh terhadap
+log CMR menghasilkan slope -0{,}086 dengan $R^2=0{,}053$, sedangkan
+exposure proxy massa tubuh dikali adult life expectancy menghasilkan slope
+-0{,}063 dengan $R^2=0{,}034$. Hasil ini menunjukkan bahwa
+skala tubuh dan umur menjelaskan sebagian kecil variasi CMR. Kami
+kemudian membangun residual supresi berbasis risiko naif untuk
+mengidentifikasi spesies dengan CMR lebih rendah daripada prediksi exposure.
+Residual tersebut ditafsirkan sebagai kandidat sinyal mekanisme supresi
+kanker, termasuk DNA repair, checkpoint, dan apoptosis.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Peto's Paradox, siklus sel, DNA repair, checkpoint, apoptosis,
+comparative oncology, cancer mortality risk
+\end{IEEEkeywords}
+
+\input{contents/01-pendahuluan}
+\input{contents/02-kajian-pustaka}
+\input{contents/03-metode}
+\input{contents/04-hasil-diskusi}
+\input{contents/05-kesimpulan}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

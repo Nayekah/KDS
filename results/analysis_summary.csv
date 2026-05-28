@@ -1,0 +1,14 @@
+metric,value
+n_species,172
+n_species_nonzero_cmr,131
+median_cmr,0.03635
+median_body_mass_kg,17.75
+median_life_expectancy_years,8.643011635865847
+pearson_log_mass_log_cmr,-0.2302064502837336
+spearman_mass_cmr,-0.2402346943349983
+slope_log_mass_log_cmr,-0.08623701134127748
+r2_log_mass_log_cmr,0.05299500975223692
+slope_log_life_log_cmr,0.2830201806248697
+r2_log_life_log_cmr,0.020965848079047
+slope_log_exposure_log_cmr,-0.06343021013854662
+r2_log_exposure_log_cmr,0.03428075894360871

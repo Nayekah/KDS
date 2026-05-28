@@ -1,0 +1,127 @@
+\section{Metode}
+
+\begin{figure}[t]
+    \centering
+    \resizebox{0.78\columnwidth}{!}{%
+    \begin{tikzpicture}[
+        node distance=0.42cm,
+        block/.style={rectangle, draw, rounded corners, fill=blue!7,
+                      minimum height=0.52cm, text width=3.05cm,
+                      align=center, font=\scriptsize},
+        arr/.style={-{Stealth[length=2.5pt]}, thick}
+    ]
+        \node[block] (data) {Dataset Vincze et al.};
+        \node[block, below=of data] (filter) {Filtering nilai inti kosong};
+        \node[block, below=of filter] (features) {Hitung log massa, log umur, exposure proxy};
+        \node[block, below=of features] (reg) {Regresi + bootstrap + robustness};
+        \node[block, below=of reg] (resid) {Risiko naif + residual supresi};
+        \node[block, below=of resid] (bio) {Interpretasi biologis siklus sel};
+        \draw[arr] (data) -- (filter);
+        \draw[arr] (filter) -- (features);
+        \draw[arr] (features) -- (reg);
+        \draw[arr] (reg) -- (resid);
+        \draw[arr] (resid) -- (bio);
+    \end{tikzpicture}}
+    \caption{Bagan alir metode komputasi. Analisis bergerak dari dataset
+    komparatif menuju regresi, uji robustness, model risiko naif, dan
+    interpretasi mekanistik.}
+    \label{fig:method-flow}
+\end{figure}
+
+\subsection{Data dan Filtering}
+
+Data utama adalah \texttt{SupplementaryData.xls} dari Vincze dkk.
+\cite{vincze2022}, diunduh dari repositori GitHub penulis dan dikonversi
+menjadi CSV. Dataset memuat spesies mamalia, ordo, massa tubuh, adult life
+expectancy, CMR, ICM, jumlah individu, jumlah individu mati, jumlah kasus
+neoplasia, dan jumlah catatan postmortem. Baris dengan nilai kosong pada
+massa tubuh, adult life expectancy, CMR, atau ICM dikeluarkan. Semua analisis
+berikutnya menggunakan 172 spesies yang lolos filtering.
+
+Kode Python tersedia pada repositori proyek:
+\url{https://github.com/Nayekah/KDS}. Implementasi memakai pustaka standar
+Python agar analisis dapat dijalankan tanpa instalasi paket numerik eksternal.
+Komponen program terdiri dari pembaca data, fungsi statistik, analisis
+komparatif, dan generator tabel/figur untuk laporan.
+
+\input{contents/generated-results}
+
+CMR digunakan sebagai variabel risiko utama karena merepresentasikan
+probabilitas kematian terkait kanker pada individu dewasa. Adult life
+expectancy dikonversi dari hari menjadi tahun. Massa tubuh digunakan dalam
+kilogram. Untuk mengurangi efek skala yang lebar, hubungan statistik
+dihitung pada skala logaritmik untuk massa tubuh, adult life expectancy,
+exposure proxy, dan CMR nonnol.
+
+\subsection{Exposure Proxy}
+
+Risiko kanker secara teoritis meningkat dengan jumlah sel dan lama paparan
+waktu. Karena jumlah sel aktual tidak tersedia untuk semua spesies, massa
+tubuh digunakan sebagai proksi jumlah sel. Exposure proxy didefinisikan
+sebagai
+\begin{equation}
+    E_i = M_i \times L_i,
+\end{equation}
+dengan $M_i$ adalah massa tubuh spesies $i$ dan $L_i$ adalah adult life
+expectancy dalam tahun. Proksi ini tidak mengukur jumlah pembelahan aktual,
+tetapi cukup untuk menguji prediksi dasar Peto's Paradox: spesies dengan
+$E$ besar diperkirakan memiliki risiko kanker lebih tinggi jika tidak ada
+kompensasi biologis.
+
+\subsection{Regresi Skala Tubuh dan Risiko}
+
+Analisis pertama menghitung regresi linear sederhana:
+\begin{equation}
+    \log_{10}(\mathrm{CMR}_i) =
+    \alpha + \beta \log_{10}(X_i) + \epsilon_i,
+\end{equation}
+dengan $X_i$ berupa massa tubuh, adult life expectancy, atau exposure proxy.
+Hanya spesies dengan CMR lebih dari nol yang digunakan dalam regresi log.
+Nilai slope dan $R^2$ dilaporkan untuk melihat apakah risiko kanker
+meningkat searah dengan ukuran tubuh dan umur.
+
+Untuk menguji kestabilan slope, bootstrap dilakukan 1000 kali dengan
+resampling spesies ber-CMR nonnol. Dari distribusi slope bootstrap diambil
+rerata dan interval kepercayaan 95\%. Selain itu, regresi massa tubuh
+diulang setelah menerapkan ambang minimum catatan postmortem 20, 50, dan
+100. Uji ini digunakan karena CMR pada spesies dengan sedikit catatan
+postmortem lebih rentan terhadap noise pencatatan.
+
+\subsection{Model Risiko Naif dan Residual Supresi}
+
+Untuk menafsirkan deviasi dari prediksi naif, risiko berbasis exposure
+didefinisikan sebagai
+\begin{equation}
+    R_i^\mathrm{naif} = 1 - \exp(-\lambda E_i).
+\end{equation}
+Parameter $\lambda$ dikalibrasi sehingga median risiko naif mendekati median
+CMR nonnol. Residual supresi kemudian dihitung sebagai
+\begin{equation}
+    S_i = 1 -
+    \frac{-\ln(1-\mathrm{CMR}_i)}{\lambda E_i}.
+\end{equation}
+Nilai $S_i$ tinggi menunjukkan CMR teramati lebih rendah daripada risiko naif
+yang diprediksi oleh exposure proxy. Nilai ini bukan pengukuran langsung
+DNA repair atau apoptosis, tetapi kandidat sinyal supresi kanker relatif
+yang dapat dikaitkan dengan mekanisme kontrol siklus sel.
+
+\subsection{Ringkasan Ordo}
+
+Selain analisis spesies, data diringkas per ordo. Ordo dengan kurang dari
+tiga spesies dikeluarkan dari ringkasan agar median tidak terlalu rapuh.
+Untuk setiap ordo dihitung median CMR, median massa tubuh, median adult life
+expectancy, dan jumlah spesies. Ringkasan ini digunakan untuk melihat
+apakah perbedaan risiko lebih tampak pada tingkat taksonomi daripada pada
+skala tubuh saja.
+
+\subsection{Kriteria Interpretasi}
+
+Hasil kuantitatif ditafsirkan dalam tiga tingkat. Pertama, slope regresi
+digunakan untuk menjawab apakah ukuran tubuh, umur, atau exposure proxy
+memiliki hubungan arah yang konsisten dengan CMR. Kedua, bootstrap dan filtering
+postmortem digunakan untuk menilai apakah kesimpulan tersebut stabil
+terhadap sampling spesies dan kualitas catatan. Ketiga, residual supresi
+digunakan sebagai analisis kualitatif untuk memilih spesies kandidat.
+Dengan pemisahan ini, paper tidak menyamakan korelasi statistik dengan
+mekanisme biologis langsung, tetapi menggunakan hasil komputasi sebagai
+dasar formulasi hipotesis biologis yang lebih terarah.
