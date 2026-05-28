@@ -2,45 +2,49 @@
 
 Kanker muncul ketika sel yang membawa perubahan genetik atau epigenetik
 memperoleh kemampuan untuk membelah, bertahan hidup, dan berekspansi secara
-tidak normal. Pada tingkat sel, proses ini berhubungan erat dengan siklus
-sel. Checkpoint G1/S dan G2/M menahan pembelahan ketika DNA rusak atau
-replikasi belum selesai. DNA repair mengurangi peluang kerusakan menjadi
-mutasi permanen. Apoptosis mengeliminasi sel yang kerusakannya terlalu
-berat. Kegagalan ketiga mekanisme ini berkontribusi pada akumulasi mutasi
-dan instabilitas genom \cite{hanahan2022,alberts2015}.
+tidak normal. Pada tingkat sel, proses ini berkaitan dengan akumulasi mutasi,
+kegagalan DNA repair, checkpoint yang tidak cukup menahan pembelahan, dan
+apoptosis yang tidak berhasil mengeliminasi sel berisiko
+\cite{hanahan2022,alberts2015}. Karena itu, risiko kanker tidak hanya dapat
+dibaca sebagai masalah ukuran organisme, tetapi juga sebagai hasil dinamika
+populasi sel.
 
 Secara intuitif, organisme yang lebih besar dan hidup lebih lama diperkirakan
-memiliki peluang kanker lebih tinggi. Mereka memiliki lebih banyak sel dan lebih
+memiliki risiko kanker lebih tinggi. Mereka memiliki lebih banyak sel dan lebih
 banyak kesempatan pembelahan sepanjang hidup. Namun, Peto's Paradox
 menyatakan bahwa risiko kanker antarspesies tidak meningkat secara
 proporsional terhadap ukuran tubuh dan umur \cite{peto1977,caulin2011}.
-Paradoks ini mengarah pada hipotesis bahwa beberapa organisme besar
-memiliki mekanisme supresi kanker yang lebih efektif.
+Paradoks ini mengarah pada pertanyaan mekanistik: mekanisme apa yang dapat
+mengurangi peluang sel kanker muncul atau lolos dari kontrol organisme besar?
 
-Paper ini menganalisis Peto's Paradox menggunakan data komparatif mamalia
-dari Vincze dkk. \cite{vincze2022}. Dataset tersebut menggabungkan data
-Species360/ZIMS untuk memperkirakan adult cancer mortality risk (CMR),
-incidence of cancer mortality (ICM), massa tubuh, adult life expectancy,
-jumlah individu, jumlah catatan postmortem, dan jumlah kasus neoplasia pada
-mamalia kebun binatang. Fokus analisis adalah apakah CMR meningkat seiring
-massa tubuh dan adult life expectancy, serta spesies mana yang memiliki CMR
-lebih rendah daripada risiko naif berbasis exposure proxy.
+Studi ini menempatkan simulasi sebagai kontribusi utama. Kami membangun model
+populasi sel yang merepresentasikan sel sehat, termutasi, prakanker, dan
+kanker. Model ini menguji bagaimana pembelahan, mutasi, repair, apoptosis,
+jumlah mutasi yang dibutuhkan untuk transformasi, serta kontrol imun
+memengaruhi cancer escape. Dalam laporan ini, cancer escape tidak berarti
+kanker klinis pada organisme nyata, melainkan kondisi operasional dalam simulasi
+ketika jumlah unit sel kanker melampaui ambang kontrol imun.
+
+Analisis dataset mamalia dari Vincze dkk. \cite{vincze2022} digunakan sebagai
+konteks empiris. Dataset tersebut memuat adult cancer mortality risk (CMR),
+incidence of cancer mortality (ICM), massa tubuh, adult life expectancy, jumlah
+individu, jumlah catatan postmortem, dan jumlah kasus neoplasia. Analisis ini
+menunjukkan apakah pola data nyata mendukung motivasi dasar simulasi: ukuran
+tubuh dan umur saja tidak cukup untuk menjelaskan variasi risiko kanker.
 
 Pertanyaan penelitian yang diajukan adalah:
 \begin{enumerate}
-    \item Apakah massa tubuh dan adult life expectancy berasosiasi konsisten
-          dengan CMR lintas mamalia?
-    \item Apakah exposure proxy berbasis massa tubuh dan umur mampu
-          menjelaskan variasi CMR?
-    \item Spesies atau ordo mana yang menunjukkan CMR lebih rendah daripada
-          prediksi risiko naif, sehingga layak menjadi kandidat studi
-          mekanisme supresi kanker?
+    \item Bagaimana model populasi sel sederhana dapat menerjemahkan mutasi
+          multi-hit, repair, apoptosis, dan kontrol imun menjadi cancer escape?
+    \item Apakah skenario organisme besar dan berumur panjang tanpa mekanisme
+          kompensasi menghasilkan escape probability lebih tinggi daripada
+          skenario dengan perlindungan biologis?
+    \item Bagaimana hasil simulasi tersebut dibaca bersama analisis empiris CMR
+          lintas mamalia dari dataset Vincze dkk.?
 \end{enumerate}
 
-Kontribusi paper ini adalah pipeline Python yang membaca dataset asli,
-menghitung hubungan skala tubuh-umur dengan CMR, menguji robustness melalui
-bootstrap dan filtering catatan postmortem, membangun model risiko naif
-berbasis exposure proxy, dan mengestimasi residual supresi sebagai kandidat
-sinyal mekanisme kontrol siklus sel. Dengan demikian, konsep DNA repair,
-checkpoint, dan apoptosis digunakan untuk menafsirkan pola empiris lintas
-spesies, bukan sekadar menjadi asumsi model hipotetis.
+Kontribusi studi ini adalah kerangka eksplorasi yang menghubungkan teori
+biologi kanker dengan pola Peto's Paradox. Model tidak dimaksudkan untuk
+memprediksi risiko kanker spesies tertentu. Tujuannya adalah menunjukkan secara
+terkendali bagaimana mekanisme yang termotivasi secara biologis dapat
+menurunkan cancer escape pada kondisi ukuran dan umur yang lebih besar.

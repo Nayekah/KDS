@@ -1,0 +1,7 @@
+scenario,label,mechanism,n_trials,escape_probability,mean_escape_time,mean_escape_step,mean_final_cancer_cells,mean_final_total_cells,mean_final_cancer_fraction
+small_short_lived,Small short-lived,lower cell number and shorter exposure time,100,0.0,,,0.0,139.91,0.0
+large_long_lived_naive,Large long-lived naive,larger cell number and longer exposure time without added protection,100,0.72,384.4861111111111,384.4861111111111,1.6,519.04,0.0030834558058454257
+large_slower_division,Large slower division,lower normal-cell division probability,100,0.11,403.8181818181818,403.8181818181818,0.14,519.59,0.00026945351945351943
+large_better_repair,Large better repair,higher repair probability for damaged cells,100,0.06,412.5,412.5,0.07,519.64,0.00013468949162590783
+large_extra_required_hits,Large extra required hits,higher mutation threshold before cancer transformation,100,0.03,413.6666666666667,413.6666666666667,0.03,519.13,5.7803611271819365e-05
+large_stronger_immune_control,Large stronger immune control,higher initial immune control and killing rate,100,0.0,,,0.0,518.93,0.0

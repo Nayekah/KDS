@@ -9,3 +9,4 @@ doc/tex/*.log
 doc/tex/*.out
 doc/tex/*.run.xml
 doc/tex/*.toc
+memory/activeContext.md

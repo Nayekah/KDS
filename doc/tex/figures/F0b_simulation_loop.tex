@@ -1,0 +1,25 @@
+\begin{figure}[t]
+\centering
+\resizebox{0.65\columnwidth}{!}{%
+\begin{tikzpicture}[
+    box/.style={rectangle, draw, rounded corners=2pt, minimum width=3.4cm, align=center, font=\footnotesize, inner sep=3pt, fill=white},
+    arr/.style={draw, ->, >=stealth, semithick},
+    node distance=0.55cm,
+]
+\node[box, fill=blue!5!white] (s1) {1. Cell division\\${}+$ possible mutation};
+\node[box, below=of s1] (s2) {2. DNA repair\\or apoptosis};
+\node[box, below=of s2] (s3) {3. Cancer transformation\\if mutations $\ge$ threshold};
+\node[box, below=of s3] (s4) {4. Cancer growth\\vs immune elimination};
+\node[box, below=of s4] (s5) {5. Immune decline\\due to age and cancer};
+\node[box, below=of s5] (s6) {6. Cancer escape if\\cancer exceeds immunity};
+
+\draw[arr] (s1) -- (s2);
+\draw[arr] (s2) -- (s3);
+\draw[arr] (s3) -- (s4);
+\draw[arr] (s4) -- (s5);
+\draw[arr] (s5) -- (s6);
+\end{tikzpicture}%
+}
+\caption{Urutan proses simulasi pada setiap langkah waktu: pembelahan sel dengan kemungkinan mutasi, perbaikan DNA atau apoptosis, transformasi kanker jika ambang mutasi tercapai, kompetisi kanker--imun, penurunan kapasitas imun, dan pengecekan cancer escape. Langkah 1--6 diulang hingga \texttt{lifespan\_steps} atau hingga cancer escape terjadi.}
+\label{fig:simulation-loop}
+\end{figure}

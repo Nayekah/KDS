@@ -1,23 +1,26 @@
 \section{Kesimpulan}
 
-Analisis dataset Vincze dkk. menunjukkan bahwa CMR lintas mamalia tidak
-meningkat secara proporsional seiring massa tubuh atau exposure proxy. Slope log massa
-tubuh terhadap log CMR bernilai \MassSlope\ dengan $R^2=\MassRsq$, sedangkan
-exposure proxy memberi $R^2=\ExposureRsq$. Hasil ini konsisten dengan
-gagasan inti Peto's Paradox: ukuran tubuh dan umur belum memadai untuk
+Studi ini menghasilkan model komputasional berbasis simulasi untuk
+mengeksplorasi Peto's Paradox pada tingkat populasi sel. Model menggabungkan
+mutasi multi-hit, repair, apoptosis, pertumbuhan kanker, kontrol imun, dan
+definisi cancer escape sebagai kondisi ketika sel kanker melewati ambang imun.
+Dalam 100 percobaan per skenario, skenario large long-lived naive menghasilkan
+escape probability \NaiveEscapeProbability{}, sedangkan mekanisme protektif
+seperti pembelahan lebih lambat, repair lebih baik, ambang mutasi lebih tinggi,
+dan kontrol imun lebih kuat menurunkan peluang tersebut.
+
+Analisis dataset Vincze dkk. digunakan sebagai konteks empiris. CMR lintas
+mamalia tidak meningkat secara proporsional seiring massa tubuh atau exposure
+proxy. Slope log massa tubuh terhadap log CMR bernilai \MassSlope\ dengan
+$R^2=\MassRsq$, sedangkan exposure proxy memberi $R^2=\ExposureRsq$. Hasil ini
+mendukung motivasi simulasi: ukuran tubuh dan umur saja belum memadai untuk
 menjelaskan variasi risiko kanker antarspesies.
 
-Kontribusi proyek ini adalah pipeline komputasional yang memakai data
-empiris lintas mamalia untuk menghubungkan Peto's Paradox dengan regulasi
-siklus sel. Analisis tidak hanya menghitung regresi awal, tetapi juga
-menguji kestabilannya melalui bootstrap dan filtering catatan postmortem.
-Residual supresi dari model risiko naif dapat digunakan untuk memilih
-spesies kandidat bagi studi mekanisme DNA repair, checkpoint, apoptosis,
-dan tumor suppressor.
-
-Secara objektif, penelitian ini berkontribusi dengan menyajikan cara
-komputasional yang sederhana, transparan, dan berbasis data nyata untuk
-mengubah Peto's Paradox menjadi pertanyaan yang dapat diuji. Pengembangan
-berikutnya perlu memasukkan kontrol filogenetik, data jaringan, dan
-pengukuran molekuler langsung agar residual statistik dapat diuji sebagai
-mekanisme biologis.
+Kontribusi utama proyek ini adalah kerangka simulasi eksploratif yang sederhana,
+transparan, dan reproduksibel untuk menguji intuisi mekanistik Peto's Paradox. Model tidak
+membuktikan mekanisme spesies tertentu dan tidak memprediksi risiko absolut.
+Namun, hasilnya menunjukkan bahwa perubahan kecil pada proses seluler dan imun
+dapat menurunkan cancer escape pada kondisi ukuran dan umur yang lebih besar.
+Pengembangan berikutnya perlu memasukkan parameter jaringan yang lebih realistis,
+kontrol filogenetik, dan data molekuler agar simulasi dapat bergerak dari
+eksplorasi konseptual menuju pengujian biologis yang lebih spesifik.

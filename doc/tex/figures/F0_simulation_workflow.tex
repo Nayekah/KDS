@@ -1,0 +1,28 @@
+\begin{figure}[t]
+\centering
+\resizebox{0.92\columnwidth}{!}{%
+\begin{tikzpicture}[
+    box/.style={rectangle, rounded corners=2pt, minimum width=1.5cm, minimum height=0.6cm, font=\footnotesize\bfseries, text centered, text=white},
+    every edge/.style={draw, ->, >=stealth, font=\tiny},
+    node distance=1.5cm and 1.0cm,
+]
+\node[box, fill=green!55!black] (H) {Sehat};
+\node[box, fill=orange!75!black, right=of H] (M) {Termutasi};
+\node[box, fill=orange!90!black, right=of M] (P) {Prakanker};
+\node[box, fill=red!70!black, right=of P] (C) {Kanker};
+\node[box, fill=blue!55!black, right=of C] (E) {Escape};
+\node[box, fill=gray!50!black, below=of M] (D1) {Mati};
+\node[box, fill=gray!50!black, below=of C] (D2) {Mati};
+
+\draw (H) edge node[above] {div+mut} (M);
+\draw (M) edge node[above] {mutasi} (P);
+\draw (P) edge node[above] {mutasi} (C);
+\draw (C) edge node[above, align=center] {lampaui\\ambang} (E);
+\draw (M) edge node[left] {apoptosis} (D1);
+\draw (C) edge node[left, align=center] {eliminasi\\imun} (D2);
+\draw[->, bend left=45] (M) to node[above] {repair} (H);
+\end{tikzpicture}%
+}
+\caption{Diagram alir state sel dalam simulasi. Sel sehat dapat mengalami mutasi saat pembelahan menjadi termutasi. Sel termutasi dapat kembali ke sehat melalui repair, dihapus melalui apoptosis, atau mengakumulasi mutasi menjadi prakanker lalu kanker. Sel kanker dapat dieliminasi oleh imun atau melampaui ambang kontrol (cancer escape).}
+\label{fig:simulation-flow}
+\end{figure}

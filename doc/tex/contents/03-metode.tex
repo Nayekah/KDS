@@ -1,127 +1,187 @@
 \section{Metode}
 
-\begin{figure}[t]
-    \centering
-    \resizebox{0.78\columnwidth}{!}{%
-    \begin{tikzpicture}[
-        node distance=0.42cm,
-        block/.style={rectangle, draw, rounded corners, fill=blue!7,
-                      minimum height=0.52cm, text width=3.05cm,
-                      align=center, font=\scriptsize},
-        arr/.style={-{Stealth[length=2.5pt]}, thick}
-    ]
-        \node[block] (data) {Dataset Vincze et al.};
-        \node[block, below=of data] (filter) {Filtering nilai inti kosong};
-        \node[block, below=of filter] (features) {Hitung log massa, log umur, exposure proxy};
-        \node[block, below=of features] (reg) {Regresi + bootstrap + robustness};
-        \node[block, below=of reg] (resid) {Risiko naif + residual supresi};
-        \node[block, below=of resid] (bio) {Interpretasi biologis siklus sel};
-        \draw[arr] (data) -- (filter);
-        \draw[arr] (filter) -- (features);
-        \draw[arr] (features) -- (reg);
-        \draw[arr] (reg) -- (resid);
-        \draw[arr] (resid) -- (bio);
-    \end{tikzpicture}}
-    \caption{Bagan alir metode komputasi. Analisis bergerak dari dataset
-    komparatif menuju regresi, uji robustness, model risiko naif, dan
-    interpretasi mekanistik.}
-    \label{fig:method-flow}
-\end{figure}
+\subsection{Model Simulasi Populasi Sel}
 
-\subsection{Data dan Filtering}
+Simulasi diimplementasikan sebagai model stokastik berbasis agen. Satu unit sel
+simulasi tidak merepresentasikan satu sel biologis, melainkan kelompok sel yang
+diskalakan agar proses dapat divisualisasikan. Setiap unit memiliki state
+\texttt{healthy}, \texttt{mutated}, \texttt{precancer}, atau \texttt{cancer},
+serta menyimpan \texttt{mutation\_count} dan umur internal.
 
-Data utama adalah \texttt{SupplementaryData.xls} dari Vincze dkk.
-\cite{vincze2022}, diunduh dari repositori GitHub penulis dan dikonversi
-menjadi CSV. Dataset memuat spesies mamalia, ordo, massa tubuh, adult life
-expectancy, CMR, ICM, jumlah individu, jumlah individu mati, jumlah kasus
-neoplasia, dan jumlah catatan postmortem. Baris dengan nilai kosong pada
-massa tubuh, adult life expectancy, CMR, atau ICM dikeluarkan. Semua analisis
-berikutnya menggunakan 172 spesies yang lolos filtering.
+Pada setiap langkah waktu, sel sehat atau termutasi dapat membelah. Pembelahan
+dapat menambah mutasi dengan probabilitas \texttt{mutation\_rate}. Sel yang
+rusak dapat memperbaiki satu mutasi melalui \texttt{repair\_rate} atau dihapus
+melalui apoptosis dengan \texttt{apoptosis\_rate}. Jika \texttt{mutation\_count}
+mencapai \texttt{required\_mutations}, sel menjadi kanker. Sel kanker membelah
+dengan \texttt{cancer\_division\_rate} dan dapat dihapus oleh kontrol imun.
+Kapasitas imun berkurang oleh \texttt{immune\_aging\_rate} dan beban kanker
+melalui \texttt{immune\_depletion\_rate}.
 
-Kode Python tersedia pada repositori proyek:
-\url{https://github.com/Nayekah/KDS}. Implementasi memakai pustaka standar
-Python agar analisis dapat dijalankan tanpa instalasi paket numerik eksternal.
-Komponen program terdiri dari pembaca data, fungsi statistik, analisis
-komparatif, dan generator tabel/figur untuk laporan.
+\input{figures/F0_simulation_workflow}
+\input{figures/F0b_simulation_loop}
+
+Cancer escape didefinisikan sebagai langkah pertama ketika jumlah unit sel
+kanker simulasi melebihi kapasitas imun saat itu:
+\begin{equation}
+    C_t > I_t,
+\end{equation}
+dengan $C_t$ adalah jumlah unit sel kanker simulasi dan $I_t$ adalah
+\texttt{immune\_strength}. Istilah ``unit'' penting karena satu sel pada model
+merupakan representasi terskala, bukan satu sel biologis individual. Definisi
+ini mengikuti ide tipping time pada Kan dan Chen \cite{kan2024}. Jika kondisi
+tersebut tidak terjadi sampai akhir \texttt{lifespan\_steps}, maka skenario
+dianggap tidak mengalami cancer escape.
+
+\subsection{Pemetaan Teori ke Parameter}
+
+Model mutasi multi-hit mengikuti Caulin dkk. \cite{caulin2015}. Laju
+pembelahan, mutasi per pembelahan, jumlah hit sebelum kanker, dan skala populasi
+sel dipetakan ke parameter yang ditunjukkan pada Tabel~\ref{tab:parameter-mapping}.
+Repair dan apoptosis ditafsirkan melalui kerangka multi-stage cancer progression
+Szasz \cite{szasz2024}. Interaksi kanker-imun mengikuti Kan dan Chen
+\cite{kan2024}: kapasitas imun awal menjadi ambang kontrol, kemampuan eliminasi
+sel kanker menjadi laju eliminasi imun, sedangkan penuaan imun dan beban kanker
+menurunkan kapasitas imun sepanjang simulasi.
+
+\subsection{Model Teoretis}
+
+Model Caulin dkk. memberi dasar bahwa risiko kanker pada organisme besar dapat
+dibaca sebagai fungsi dari laju mutasi per pembelahan, jumlah pembelahan,
+jumlah hit yang dibutuhkan sebelum transformasi, dan skala jumlah sel relevan
+\cite{caulin2015}. Secara ringkas, peluang munculnya kanker dapat ditulis
+sebagai
+\begin{equation}
+    p = 1 - \left(1 - \left(1 - (1-u)^d\right)^k\right)^{Nm},
+\end{equation}
+dengan $u$ sebagai laju mutasi per pembelahan, $d$ jumlah pembelahan, $k$ jumlah
+hit yang dibutuhkan, dan $Nm$ skala populasi sel relevan. Dalam studi ini,
+rumus tersebut tidak diimplementasikan secara langsung sebagai persamaan
+tertutup. Sebaliknya, komponennya diterjemahkan ke simulasi diskret: pembelahan
+memberi peluang mutasi, mutasi diakumulasi pada unit sel, dan sel menjadi kanker
+ketika jumlah hit mencapai ambang tertentu.
+
+Model Kan dan Chen memberi dasar untuk membaca cancer escape sebagai persoalan
+waktu ketika kanker melewati kontrol imun \cite{kan2024}. Bagian yang relevan
+dapat diringkas sebagai interaksi antara sel kanker $C$, sel sehat $H$, dan
+kapasitas imun $I$:
+\begin{align}
+    \frac{dC}{dt} &= r_1 C\left(1-\frac{C}{K_1}\right)-\alpha CH-\beta CI, \\
+    \frac{dI}{dt} &= -r_3 I-\delta IC.
+\end{align}
+Simulasi ini tidak menyelesaikan sistem ODE tersebut secara numerik. Model
+dipakai sebagai inspirasi mekanistik: kanker dapat bertambah, kontrol imun dapat
+mengeliminasi sebagian sel kanker, dan kapasitas imun menurun karena usia serta
+beban kanker. Karena itu, definisi operasional cancer escape dibuat sederhana,
+yaitu saat $C_t>I_t$.
+
+Dengan demikian, model yang digunakan bersifat diskret dan stokastik, tetapi
+tetap mempertahankan struktur utama dari sumber teoretis: akumulasi mutasi
+multi-hit, skala populasi sel, repair dan apoptosis sebagai mekanisme
+perlindungan, serta ambang kontrol imun. Parameter pada skenario tidak dimaknai
+sebagai estimasi biologis absolut, melainkan sebagai alat untuk menguji arah
+perubahan mekanisme dalam kerangka yang dapat direproduksi.
+
+\subsection{Rancangan Skenario Biologis}
+
+Skenario tidak dibuat sebagai kombinasi semua parameter karena jumlah kombinasi
+akan cepat menjadi besar dan sulit dibaca dalam laporan ringkas. Sebaliknya,
+enam skenario dipilih sebagai perturbasi satu mekanisme utama. Pendekatan ini
+membuat hubungan sebab-akibat lebih jelas: skenario large long-lived naive
+menaikkan jumlah sel dan durasi hidup tanpa perlindungan tambahan, sedangkan
+empat skenario protektif mengubah pembelahan, repair, ambang mutasi, atau
+kontrol imun satu per satu.
+
+\begin{table}[t]
+\centering
+\caption{Pemetaan parameter simulasi ke interpretasi biologis dan sumber teori.}
+\label{tab:parameter-mapping}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+Parameter & Makna biologis & Sumber\\
+\midrule
+\texttt{division\_rate} & peluang pembelahan sel normal & Caulin dkk.\\
+\texttt{mutation\_rate} & mutasi per pembelahan & Caulin dkk.\\
+\texttt{required\_mutations} & jumlah hit sebelum kanker & Caulin dkk.\\
+\texttt{max\_cells} & skala populasi/carrying capacity & Caulin; Kan dan Chen\\
+\texttt{repair\_rate} & perbaikan kerusakan mutasi & Caulin; Szasz\\
+\texttt{apoptosis\_rate} & eliminasi sel rusak & Szasz\\
+\texttt{immune\_strength} & ambang kontrol imun & Kan dan Chen\\
+\texttt{immune\_kill\_rate} & penghapusan sel kanker oleh imun & Kan dan Chen\\
+\texttt{immune\_aging\_rate} & penurunan imun karena usia & Kan dan Chen\\
+\texttt{immune\_depletion\_rate} & penurunan imun karena beban kanker & Kan dan Chen\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+Skenario small short-lived berfungsi sebagai baseline paparan rendah. Skenario
+large long-lived naive merepresentasikan prediksi naif Peto's Paradox: lebih
+banyak sel dan waktu hidup meningkatkan peluang transformasi. Skenario slower
+division menguji gagasan Caulin dkk. bahwa laju pembelahan lebih rendah dapat
+menurunkan peluang mutasi. Skenario better repair menurunkan beban mutasi
+efektif. Skenario extra required hits menguji sensitivitas model terhadap
+jumlah hit sebelum transformasi kanker. Skenario stronger immune control
+menguji apakah sel kanker dapat dicegah melewati ambang escape.
+
+\begin{table}[t]
+\centering
+\caption{Nilai parameter utama pada skenario simulasi.}
+\label{tab:scenario-parameters}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Skenario & $K$ & $T$ & Div. & Mut. & Repair & Hits & Imun\\
+\midrule
+Small short-lived & 140 & 180 & 0.070 & 0.035 & 0.030 & 4 & 16/0.040/0.010\\
+Large naive & 520 & 520 & 0.090 & 0.070 & 0.030 & 4 & 8/0.020/0.020\\
+Large slower division & 520 & 520 & 0.045 & 0.070 & 0.030 & 4 & 8/0.020/0.020\\
+Large better repair & 520 & 520 & 0.090 & 0.070 & 0.120 & 4 & 8/0.020/0.020\\
+Large extra hits & 520 & 520 & 0.090 & 0.070 & 0.030 & 6 & 8/0.020/0.020\\
+Large stronger immune & 520 & 520 & 0.090 & 0.070 & 0.030 & 4 & 40/0.080/0.006\\
+\bottomrule
+\end{tabular}}
+\vspace{0.4ex}
+\footnotesize{Catatan: kolom imun ditulis sebagai kapasitas awal/laju eliminasi/laju penuaan.}
+\end{table}
+
+Pada Tabel~\ref{tab:scenario-parameters}, $K$ adalah kapasitas populasi sel
+terskala dan $T$ adalah jumlah langkah simulasi. Parameter lain mengikuti nilai
+dasar model kecuali ketika skenario secara eksplisit mengubah satu mekanisme
+utama.
+
+Setiap skenario dijalankan 100 kali dengan seed tetap 20260528 agar variasi
+stokastik dapat diringkas secara konsisten. Jumlah percobaan ini dipilih sebagai
+kompromi antara kestabilan ringkasan dan batas ruang laporan. Hasil pada tabel
+simulasi bukan keluaran manual dari antarmuka visual, melainkan ringkasan
+percobaan berulang yang dapat dibuat ulang dari pipeline yang sama.
+
+\subsection{Analisis Empiris Pendukung}
+
+Data empiris berasal dari dataset Vincze dkk. \cite{vincze2022}. Baris dengan
+nilai kosong pada massa tubuh, adult life expectancy, CMR, atau ICM dikeluarkan.
+Analisis memakai 172 spesies yang lolos filtering. CMR digunakan sebagai
+variabel risiko utama, adult life expectancy dikonversi dari hari menjadi
+tahun, dan massa tubuh digunakan dalam kilogram.
 
 \input{contents/generated-results}
 
-CMR digunakan sebagai variabel risiko utama karena merepresentasikan
-probabilitas kematian terkait kanker pada individu dewasa. Adult life
-expectancy dikonversi dari hari menjadi tahun. Massa tubuh digunakan dalam
-kilogram. Untuk mengurangi efek skala yang lebar, hubungan statistik
-dihitung pada skala logaritmik untuk massa tubuh, adult life expectancy,
-exposure proxy, dan CMR nonnol.
-
-\subsection{Exposure Proxy}
-
-Risiko kanker secara teoritis meningkat dengan jumlah sel dan lama paparan
-waktu. Karena jumlah sel aktual tidak tersedia untuk semua spesies, massa
-tubuh digunakan sebagai proksi jumlah sel. Exposure proxy didefinisikan
-sebagai
+Exposure proxy didefinisikan sebagai
 \begin{equation}
     E_i = M_i \times L_i,
 \end{equation}
 dengan $M_i$ adalah massa tubuh spesies $i$ dan $L_i$ adalah adult life
-expectancy dalam tahun. Proksi ini tidak mengukur jumlah pembelahan aktual,
-tetapi cukup untuk menguji prediksi dasar Peto's Paradox: spesies dengan
-$E$ besar diperkirakan memiliki risiko kanker lebih tinggi jika tidak ada
-kompensasi biologis.
+expectancy dalam tahun. Proksi ini tidak mengukur jumlah sel aktual, tetapi
+memberi pembanding naif bahwa spesies besar dan berumur panjang memiliki
+paparan lebih tinggi.
 
-\subsection{Regresi Skala Tubuh dan Risiko}
-
-Analisis pertama menghitung regresi linear sederhana:
+Hubungan empiris dihitung dengan regresi linear sederhana pada skala log:
 \begin{equation}
     \log_{10}(\mathrm{CMR}_i) =
     \alpha + \beta \log_{10}(X_i) + \epsilon_i,
 \end{equation}
 dengan $X_i$ berupa massa tubuh, adult life expectancy, atau exposure proxy.
-Hanya spesies dengan CMR lebih dari nol yang digunakan dalam regresi log.
-Nilai slope dan $R^2$ dilaporkan untuk melihat apakah risiko kanker
-meningkat searah dengan ukuran tubuh dan umur.
-
-Untuk menguji kestabilan slope, bootstrap dilakukan 1000 kali dengan
-resampling spesies ber-CMR nonnol. Dari distribusi slope bootstrap diambil
-rerata dan interval kepercayaan 95\%. Selain itu, regresi massa tubuh
-diulang setelah menerapkan ambang minimum catatan postmortem 20, 50, dan
-100. Uji ini digunakan karena CMR pada spesies dengan sedikit catatan
-postmortem lebih rentan terhadap noise pencatatan.
-
-\subsection{Model Risiko Naif dan Residual Supresi}
-
-Untuk menafsirkan deviasi dari prediksi naif, risiko berbasis exposure
-didefinisikan sebagai
-\begin{equation}
-    R_i^\mathrm{naif} = 1 - \exp(-\lambda E_i).
-\end{equation}
-Parameter $\lambda$ dikalibrasi sehingga median risiko naif mendekati median
-CMR nonnol. Residual supresi kemudian dihitung sebagai
-\begin{equation}
-    S_i = 1 -
-    \frac{-\ln(1-\mathrm{CMR}_i)}{\lambda E_i}.
-\end{equation}
-Nilai $S_i$ tinggi menunjukkan CMR teramati lebih rendah daripada risiko naif
-yang diprediksi oleh exposure proxy. Nilai ini bukan pengukuran langsung
-DNA repair atau apoptosis, tetapi kandidat sinyal supresi kanker relatif
-yang dapat dikaitkan dengan mekanisme kontrol siklus sel.
-
-\subsection{Ringkasan Ordo}
-
-Selain analisis spesies, data diringkas per ordo. Ordo dengan kurang dari
-tiga spesies dikeluarkan dari ringkasan agar median tidak terlalu rapuh.
-Untuk setiap ordo dihitung median CMR, median massa tubuh, median adult life
-expectancy, dan jumlah spesies. Ringkasan ini digunakan untuk melihat
-apakah perbedaan risiko lebih tampak pada tingkat taksonomi daripada pada
-skala tubuh saja.
-
-\subsection{Kriteria Interpretasi}
-
-Hasil kuantitatif ditafsirkan dalam tiga tingkat. Pertama, slope regresi
-digunakan untuk menjawab apakah ukuran tubuh, umur, atau exposure proxy
-memiliki hubungan arah yang konsisten dengan CMR. Kedua, bootstrap dan filtering
-postmortem digunakan untuk menilai apakah kesimpulan tersebut stabil
-terhadap sampling spesies dan kualitas catatan. Ketiga, residual supresi
-digunakan sebagai analisis kualitatif untuk memilih spesies kandidat.
-Dengan pemisahan ini, paper tidak menyamakan korelasi statistik dengan
-mekanisme biologis langsung, tetapi menggunakan hasil komputasi sebagai
-dasar formulasi hipotesis biologis yang lebih terarah.
+Bootstrap 1000 kali digunakan untuk interval slope, dan analisis diulang dengan
+ambang catatan postmortem 20, 50, dan 100 untuk mengecek robustness. Risiko
+naif berbasis exposure dihitung sebagai $R_i^\mathrm{naif}=1-\exp(-\lambda E_i)$,
+dengan $\lambda$ dikalibrasi pada median CMR nonnol. Residual supresi dipakai
+sebagai konteks biologis, bukan bukti langsung mekanisme molekuler.

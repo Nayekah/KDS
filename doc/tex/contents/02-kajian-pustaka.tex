@@ -1,56 +1,71 @@
 \section{Kajian Pustaka}
 
-\subsection{Peto's Paradox}
+\subsection{Peto's Paradox dan Data Empiris}
 
 Peto's Paradox berangkat dari ketidaksesuaian antara prediksi sederhana dan
-data lintas spesies. Jika setiap sel memiliki peluang yang sama untuk
-mengalami transformasi kanker, maka organisme besar dan berumur panjang
-diperkirakan memiliki risiko kanker lebih tinggi daripada organisme
-kecil. Pada kenyataannya, korelasi tersebut lemah atau tidak proporsional
-antarspesies \cite{caulin2011}. Hal ini berbeda dengan pola dalam satu
-spesies, di mana ukuran tubuh atau umur sering berkaitan dengan risiko
-kanker yang lebih tinggi.
+data lintas spesies. Jika setiap sel memiliki peluang transformasi kanker yang
+sama, organisme besar dan berumur panjang diperkirakan memiliki risiko kanker
+lebih tinggi. Namun, korelasi tersebut lemah atau tidak proporsional
+antarspesies \cite{caulin2011}. Vincze dkk. menyusun dataset cancer-related
+mortality pada mamalia dewasa di bawah perawatan manusia dan menunjukkan bahwa
+CMR sebagian besar independen dari massa tubuh dan adult life expectancy
+\cite{vincze2022}. Temuan ini memberi konteks empiris bahwa model naif berbasis
+jumlah sel dan waktu paparan belum cukup.
 
-Penjelasan biologis yang umum diajukan adalah evolusi mekanisme supresi
-kanker. Mekanisme tersebut dapat berupa DNA repair yang lebih efisien,
-checkpoint yang lebih ketat, apoptosis yang lebih sensitif, pembatasan
-pembelahan stem cell, arsitektur jaringan yang membatasi ekspansi klon,
-atau sistem imun yang lebih efektif. Contoh yang banyak dibahas adalah
-gajah. Sulak dkk. melaporkan ekspansi salinan TP53 pada gajah dan respons
-kerusakan DNA yang lebih aktif \cite{sulak2016}. Tollis dkk. juga melaporkan
-percepatan evolusi pada mekanisme pertahanan penyakit gajah
+\subsection{Mutasi Multi-Hit}
+
+Caulin dkk. menggunakan model matematika untuk menilai parameter yang dapat
+menyelesaikan Peto's Paradox pada organisme besar \cite{caulin2015}. Model
+tersebut menekankan laju mutasi per pembelahan ($u$), jumlah pembelahan sejak
+lahir ($d$), jumlah hit yang diperlukan sebelum kanker ($k$), dan skala jumlah
+sel relevan ($Nm$). Hasil pentingnya adalah bahwa penurunan kecil pada laju
+mutasi atau laju pembelahan, serta tambahan satu sampai dua hit yang diperlukan
+untuk transformasi, dapat menurunkan risiko secara kuat. Dalam simulasi ini,
+gagasan tersebut diterjemahkan menjadi laju mutasi, laju pembelahan, jumlah hit
+sebelum kanker, dan skala populasi sel.
+
+\subsection{Interaksi Kanker dan Imun}
+
+Kan dan Chen memodelkan Peto's Paradox dengan sistem persamaan diferensial
+yang memuat sel kanker, sel sehat, dan kapasitas imun \cite{kan2024}. Model
+mereka menulis pertumbuhan kanker dan sel sehat dengan carrying capacity,
+kompetisi antarsel, eliminasi sel kanker oleh kontrol imun, serta penurunan kapasitas imun
+akibat usia dan beban kanker. Konsep penting bagi studi ini adalah tipping time:
+risiko meningkat ketika jumlah sel kanker melewati ambang kontrol imun. Karena
+itu, simulasi mendefinisikan cancer escape sebagai kondisi ketika jumlah sel
+kanker melampaui kapasitas imun yang tersisa. Laju eliminasi kanker oleh imun,
+penurunan imun karena usia, dan penurunan imun karena beban kanker merupakan
+terjemahan diskret dari peran imun dalam model tersebut.
+
+\subsection{Multi-Stage Cancer Progression}
+
+Szasz membahas multi-stage cancer progression sebagai proses yang melibatkan akumulasi
+kerusakan marginal, kegagalan caretaker gene, kegagalan gatekeeper gene,
+pertumbuhan tidak terkendali, perubahan fisiologis, dan manifestasi klinis
+\cite{szasz2024}. Studi ini tidak mengimplementasikan seluruh enam tahap
+tersebut karena tujuan model adalah eksplorasi yang ringkas. Namun, kerangka
+multi-stage tersebut dipakai untuk menafsirkan jumlah mutasi, status
+prakanker, repair, apoptosis, dan transformasi menjadi kanker.
+
+\subsection{Contoh Mekanisme Supresi}
+
+Mekanisme supresi kanker yang sering diajukan meliputi DNA repair yang lebih
+efisien, checkpoint yang lebih ketat, apoptosis yang lebih sensitif, pembatasan
+pembelahan stem cell, dan sistem imun yang lebih efektif. Contoh empiris yang
+banyak dibahas adalah gajah: Sulak dkk. melaporkan ekspansi salinan TP53 dan
+respons kerusakan DNA yang lebih aktif \cite{sulak2016}, sedangkan Tollis dkk.
+melaporkan percepatan evolusi pada mekanisme pertahanan penyakit gajah
 \cite{tollis2021}.
 
-\subsection{Dataset Kanker Lintas Mamalia}
-
-Vincze dkk. menyusun basis data cancer-related mortality pada mamalia dewasa
-di bawah perawatan manusia \cite{vincze2022}. Data berasal dari Species360
-dan Zoological Information Management System. Analisis utama mereka
-melibatkan 191 spesies mamalia dan menunjukkan bahwa cancer mortality risk
-sebagian besar independen dari massa tubuh dan adult life expectancy.
-Mereka juga menekankan perbedaan antarordo dan kaitan diet dengan risiko
-kanker.
-
-Dalam paper ini, data yang tersedia publik dari GitHub penulis digunakan
-sebagai input analisis. Kolom utama yang dipakai adalah Species, Order,
-Species body mass, Adult life expectancy, CMR, ICM, jumlah individu, jumlah
-catatan postmortem, dan jumlah kasus neoplasia. Setelah baris dengan nilai
-inti kosong dikeluarkan, analisis menghasilkan 172 spesies. Dari jumlah
-tersebut, 131 spesies memiliki CMR lebih dari nol.
-
-\subsection{Siklus Sel sebagai Interpretasi Mekanistik}
-
-Data komparatif tidak mengukur DNA repair, checkpoint, atau apoptosis secara
-langsung pada setiap spesies. Karena itu, paper ini tidak mengklaim bahwa
-residual statistik adalah indikator langsung satu mekanisme molekuler tertentu.
-Sebaliknya, residual dipakai sebagai sinyal komputasional: jika suatu
-spesies memiliki exposure proxy tinggi tetapi CMR rendah, maka spesies
-tersebut menjadi kandidat untuk diteliti mekanisme supresinya.
-
-Interpretasi siklus sel tetap relevan karena sebagian besar mekanisme
-supresi kanker bekerja dengan mengurangi peluang mutasi bertahan dan
-berekspansi. DNA repair menurunkan mutasi efektif. Checkpoint menghambat
-kelanjutan siklus sel saat kerusakan terdeteksi. Apoptosis menghilangkan
-sel berisiko. Dengan demikian, analisis komparatif dapat digunakan untuk
-menentukan spesies atau ordo yang layak diprioritaskan dalam studi mekanisme
-kontrol siklus sel.
+Selain gajah, \textit{Balaena mysticetus} (paus kepala busur) yang memiliki masa
+hidup hingga 200 tahun menunjukkan efisiensi luar biasa dalam perbaikan
+kerusakan untai ganda DNA (\textit{double-strand breaks}) melalui peningkatan
+regulasi gen homologous recombination. Di sisi lain, \textit{Heterocephalus glaber}
+(tikus mondok telanjang) menggunakan mekanisme pembelahan sel yang sangat
+terkontrol melalui \textit{early contact inhibition} yang dimediasi oleh asam
+hialuronat dengan massa molekul sangat tinggi untuk mencegah pembentukan massa
+prakanker. Keberagaman solusi evolusioner ini menegaskan bahwa tidak ada satu
+jalur tunggal untuk menyelesaikan Peto's Paradox, yang sejalan dengan pendekatan
+skenario komplementer pada model simulasi kami. Contoh-contoh tersebut tidak
+dipakai untuk mengklaim mekanisme spesies tertentu dalam simulasi, tetapi menunjukkan
+bahwa perlindungan kanker dapat muncul melalui lebih dari satu jalur biologis.
